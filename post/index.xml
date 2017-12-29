@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on JMaxU博客</title>
-    <link>https://jmaxu.github.io/post/</link>
-    <description>Recent content in Posts on JMaxU博客</description>
+    <title>Posts on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/post/</link>
+    <description>Recent content in Posts on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
+    <lastBuildDate>Fri, 29 Dec 2017 20:45:37 +0800</lastBuildDate>
     
-	<atom:link href="https://jmaxu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title></title>
-      <link>https://jmaxu.github.io/post/stompoverwebsocket/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>区块链之智能合约</title>
+      <link>http://localhost:1313/post/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B9%8B%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</link>
+      <pubDate>Fri, 29 Dec 2017 20:45:37 +0800</pubDate>
       
-      <guid>https://jmaxu.github.io/post/stompoverwebsocket/</guid>
-      <description>stomp over websocket协议原理与实现 标签（空格分隔）： 分享
-[toc]
-本文你将学习到  websocket协议原理. stomp协议原理. websocket协议的缺点, 为什么websocket协议需要stomp协议来补充. spring websocket架构与实现. spring websocket的性能优化. 如果使用java编写stomp over websocket协议的client.  stomp over websocket协议原理 http协议 http协议是单工的, 只能由client发请求再由server返回请求结果, 在http协议中server是不能主动发请求到client的.
- 单工, 半双工, 全双工区别 参考: http://blog.csdn.net/erwangshi/article/details/44940069
- 大多数情况下http协议都是适用的, 但当遇到在线聊天, 股票行情这样需要实时获取取服务端信息的应用时, client需要频繁轮询server 过程如下:
- client 建立连接 client 问server有没有新的消息, 并根据返回结果进行处理 client 关闭连接 client 建立连接 client 问server有没有新的消息, 并根据返回结果进行处理 client 关闭连接 &amp;hellip;  为了拿到最新信息, client一直这样循环下去 server如果一直没有新的消息, client的大多请求都是无效的, 效率低下.
-为了提高效率需要有一种协议可以让server主动发消息给client. 这样就不需要client频繁轮询, 只要server有新消息就会主动推送给client.
-这种协议就是websocket协议.
-websocket协议 webSocket协议是基于TCP的一种网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。 在webscoket协议中, client利用http来建立tcp连接, 建立tcp连接之后, client与server就可以基于tcp连接来愉快的进行通信了.</description>
+      <guid>http://localhost:1313/post/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B9%8B%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</guid>
+      <description>本文你将了解到 比特币中智能合约的原理. 以太坊中智能合约的原理. 如写一个ICO来骗钱. 迅雷的链克区块链是怎么做的. 如何用搭建一个私有网络的区块</description>
+    </item>
+    
+    <item>
+      <title>stomp over websocket协议原理与实现</title>
+      <link>http://localhost:1313/post/stompoverwebsocket/</link>
+      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/stompoverwebsocket/</guid>
+      <description>本文你将学习到 websocket协议原理. stomp协议原理. websocket协议的缺点, 为什么websocket协议需要stomp协议来</description>
     </item>
     
   </channel>

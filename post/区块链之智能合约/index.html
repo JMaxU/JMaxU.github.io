@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>区块链之智能合约 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="olOwOlo" />
+  <meta name="description" content="本文你将了解到 比特币中智能合约的原理. 以太坊中智能合约的原理. 如写一个ICO来骗钱. 迅雷的链克区块链是怎么做的. 如何用搭建一个私有网络的区块" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B9%8B%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+<meta property="og:title" content="区块链之智能合约" />
+<meta property="og:description" content="本文你将了解到 比特币中智能合约的原理. 以太坊中智能合约的原理. 如写一个ICO来骗钱. 迅雷的链克区块链是怎么做的. 如何用搭建一个私有网络的区块" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B9%8B%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/" />
+
+
+
+<meta property="article:published_time" content="2017-12-29T20:45:37&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-12-29T20:45:37&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="区块链之智能合约">
+<meta itemprop="description" content="本文你将了解到 比特币中智能合约的原理. 以太坊中智能合约的原理. 如写一个ICO来骗钱. 迅雷的链克区块链是怎么做的. 如何用搭建一个私有网络的区块">
+
+
+<meta itemprop="datePublished" content="2017-12-29T20:45:37&#43;08:00" />
+<meta itemprop="dateModified" content="2017-12-29T20:45:37&#43;08:00" />
+<meta itemprop="wordCount" content="11521">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="区块链之智能合约"/>
+<meta name="twitter:description" content="本文你将了解到 比特币中智能合约的原理. 以太坊中智能合约的原理. 如写一个ICO来骗钱. 迅雷的链克区块链是怎么做的. 如何用搭建一个私有网络的区块"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">区块链之智能合约</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-12-29 </span>
+        
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#本文你将了解到">本文你将了解到</a></li>
+<li><a href="#什么是智能合约">什么是智能合约</a></li>
+<li><a href="#比特币中的智能合约">比特币中的智能合约</a>
+<ul>
+<li><a href="#一个简单交易">一个简单交易</a></li>
+<li><a href="#一个多签交易">一个多签交易</a></li>
+<li><a href="#一个自定义交易">一个自定义交易</a></li>
+</ul></li>
+<li><a href="#以太坊中的智能合约">以太坊中的智能合约</a>
+<ul>
+<li><a href="#基础概念">基础概念</a>
+<ul>
+<li><a href="#交易与合约关系">交易与合约关系</a></li>
+<li><a href="#与比特币智能合约区别">与比特币智能合约区别</a></li>
+</ul></li>
+<li><a href="#写几个合约">写几个合约</a>
+<ul>
+<li><a href="#一个简单的交易合约">一个简单的交易合约</a></li>
+<li><a href="#一个多签交易合约">一个多签交易合约</a></li>
+<li><a href="#一个简单的ico交易合约">一个简单的ICO交易合约</a>
+<ul>
+<li><a href="#说说迅雷链克区块链">说说迅雷链克区块链</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#实际操作一下">实际操作一下</a>
+<ul>
+<li><a href="#搭建一个私有网络的区块链">搭建一个私有网络的区块链</a>
+<ul>
+<li><a href="#安装">安装</a>
+<ul>
+<li><a href="#安装geth">安装geth</a></li>
+<li><a href="#安装solc">安装solc</a></li>
+<li><a href="#启动">启动</a></li>
+</ul></li>
+<li><a href="#创建账户">创建账户</a></li>
+<li><a href="#挖点矿">挖点矿</a></li>
+</ul></li>
+<li><a href="#编写一个数字认证智能合约并部署到区块链">编写一个数字认证智能合约并部署到区块链</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#聊一下区块链在业务中的应用">聊一下区块链在业务中的应用</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<h2 id="本文你将了解到">本文你将了解到</h2>
+
+<ul>
+<li>比特币中智能合约的原理.</li>
+<li>以太坊中智能合约的原理.</li>
+<li>如写一个ICO来骗钱.</li>
+<li>迅雷的链克区块链是怎么做的.</li>
+<li>如何用搭建一个私有网络的区块链.</li>
+<li>如何用编写一个智能合约并部署到区块链中.</li>
+<li>我们业务中如何应用区块链.</li>
+</ul>
+
+<h2 id="什么是智能合约">什么是智能合约</h2>
+
+<p>智能合约是运行在区块链上的一段相关方约定好的代码, 可以理解为就是合同, 只不过是用代码写的, 可执行的.</p>
+
+<p><strong>区块链上的智能合约有以下优点:</strong></p>
+
+<ul>
+<li>智能. 不像以前合同, 智能合约是段代码, 当触发条件是可以被自动执行的.</li>
+<li>去中心信任. 不需要第三方权威机构来做担保, 也就会省一笔中介费. 虽然合约执行会给矿工一定费用, 这个费用相比中介费用会低太多.</li>
+<li>不可篡改. 合约部署到区块链后会很难篡改.</li>
+<li>丢不了. 合约会扩散到所有节点, 有大量备份, 丢不了.</li>
+</ul>
+
+<p><strong>当然也是有缺点的:</strong></p>
+
+<ul>
+<li>如果有bug, 修不了. 由于不可篡改, 如果合约没有写好有bug, 基本改不了. 像以太坊与以太坊经典的分叉可以说就是为了修正一个bug, 代价是巨大的. 所以写合约代码, 有线上bug那就永远的bug, 不可修正, 这对开发测试的要求是相当高的.</li>
+<li>匿名. 公链都是匿名的. 匿名就不知道对方是谁, 这个会让一些罪犯钻空子, 比如洗钱, 还有之前的勒索病毒.</li>
+<li>去中心. 去中心也是有缺点的, 比如不小心, 把合约执行错了, 则回退不了. 如果有银行, 有政府这样的中心机构, 他们可以会帮你回退.</li>
+</ul>
+
+<p><strong>智能合约的一些例子:</strong></p>
+
+<ul>
+<li>数字货币. 数字货币可以说是智能合约里最大的应用了.</li>
+<li>数字认证. 认证你确实拥有某份数据, 比如电子合同.</li>
+<li>虚拟数字猫. 以太坊上最后比较火一个游戏. <a href="https://www.cryptokitties.co/">https://www.cryptokitties.co/</a>.</li>
+<li>赌博. 赌博可以写成一个合约, 双方打赌, 赌错的一方支付给赌对的一方多少钱.</li>
+<li>众筹. 合约可以写成, 当到达一个金额时, 就怎样怎样.</li>
+<li>对账. 双方操作同一份数据库, 所以也就不需要对账了.</li>
+</ul>
+
+<h2 id="比特币中的智能合约">比特币中的智能合约</h2>
+
+<p>说起智能合约, 往往想到的不是比特币, 而是以太坊等其他区块链.
+所以比特币被称为可编程货币, 就是比特币的智能合约.
+比特币区块是由一个又一个交易组成的, 而比特币的智能合约存在于这些交易中.
+交易有输出, 有输出. 在输入与输出中都含有一段脚本, 这段脚本就是智能合约.</p>
+
+<p>我们通过一个简单交易, 一个多签交易以及一个自定义的交易来了解一下比特币中的智能合约.</p>
+
+<h3 id="一个简单交易">一个简单交易</h3>
+
+<p>如下是真实存在于比特币区块链里的一个简单交易.
+为了便于阐述, 假设这个交易是小帅在小强那里购买了一部iphone, 小帅支付给了小强0.0845个比特币.</p>
+
+<p>交易内容如下:</p>
+
+<pre><code>{
+    &quot;version&quot;: 1,
+    &quot;locktime&quot;: 0,
+    &quot;vin&quot;: [
+        {
+            &quot;txid&quot;: &quot;7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18&quot;,
+            &quot;vout&quot;: 0,
+            &quot;scriptSig&quot;: &quot;3045022100884d142d86652a3f47ba4746ec719bbfbd040a570b1deccbb6498c75c4ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813[ ALL] 0484ecc0d46f1918b30928fa0e4ed99f16a0fb4fde0735e7ade8416ab9fe423cc5412336376789d172787ec3457eee41c04f4938de5cc17b4a10fa336a8d752adf&quot;,
+            &quot;sequence&quot;: 4294967295
+        }
+    ],
+    &quot;vout&quot;: [
+        {
+            &quot;value&quot;: 0.01500000,
+            &quot;scriptPubKey&quot;: &quot;OP_DUP OP_HASH160 7f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8 OP_EQUALVERIFY OP_CHECKSIG&quot;,
+        },
+        {
+            &quot;value&quot;: 0.08450000,
+            &quot;scriptPubKey&quot;: &quot;OP_DUP OP_HASH160 ab68025513c3dbd2f7b92a94e0581f5d50f654e7 OP_EQUALVERIFY OP_CHECKSIG&quot;
+        }
+    ]
+}
+</code></pre>
+
+<p>初看这个交易内容会一脸蒙逼, 到底是个什么玩意? 智能合约在哪里?
+不要担心, 跟随哥一起一步一步解读一下这个交易.</p>
+
+<p><strong>首先小帅既然支付给了小强0.0845个比特币, 那么小帅的比特币在哪里呢?</strong></p>
+
+<p>比特币中的输入与输出, 表示币从哪里到了哪里.
+每个输出里都有一个金额(value), 可以理解为就是这个输出所拥有的比特币数额.
+每个输出里也都有一个脚本(scriptPubKey), 我们称输出里的这个脚本为<code>解锁脚本</code>, 解锁脚本可以理解为是一道题. 只要有人能解出输出里的这个题, 那么这个输出里的比特币就属于解出题的这个人.</p>
+
+<p>所以小帅的比特币就在所有能够被小帅解出的交易输出里.
+而小帅的比特币余额就是所有能能被小帅解出的交易输出中比特币金额的总和.</p>
+
+<p>所以可以理解为一个又一个的交易所做就是把比特币从一个输出里转到另一个输出里.
+而交易里输入的作用就是在解某个输出里的题.</p>
+
+<p>回过头来看小帅支付给小强的这个交易的输入:</p>
+
+<pre><code>    &quot;vin&quot;: [
+        {
+            &quot;txid&quot;: &quot;7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18&quot;,
+            &quot;vout&quot;: 0,
+            &quot;scriptSig&quot;: &quot;3045022100884d142d86652a3f47ba4746ec719bbfbd040a570b1deccbb6498c75c4ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813[ ALL] 0484ecc0d46f1918b30928fa0e4ed99f16a0fb4fde0735e7ade8416ab9fe423cc5412336376789d172787ec3457eee41c04f4938de5cc17b4a10fa336a8d752adf&quot;,
+            &quot;sequence&quot;: 4294967295
+        }
+    ],
+</code></pre>
+
+<p><code>txid</code>表示引用某个交易, <code>vout</code>代表所引用交易中的第几个输出, <code>scriptSig</code>是一段脚本, 我们称为解锁脚本, 可以理解为解题答案.
+整个输入可以理解为用<code>scriptSig</code>中的解锁脚本去解交易<code>txid</code>中的第<code>vout</code>输出中的锁定脚本.</p>
+
+<p>也就是小帅要用解锁脚本<code>scriptSig</code>去解某个交易的输出, 以证明自己拥有这个输出里的比特币.</p>
+
+<p>这个输入中引用的交易<code>txid:7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18</code>的第<code>vout:0</code>输出如下:</p>
+
+<pre><code> &quot;vout&quot;: [
+        {
+            &quot;value&quot;: 0.1,
+            &quot;scriptPubKey&quot;: &quot;OP_DUP OP_HASH160  7f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8 OP_EQUALVERIFY OP_CHECKSIG&quot;
+        }
+    ]
+</code></pre>
+
+<p>小帅证明了这个输出中的0.1个比特币属于自己并把其中的0.0845个比特币支付给了小强.
+那么剩下的0.1-0.0845=0.0155到哪里去了?</p>
+
+<p>回头再看小帅支付给小强的交易中的输出:</p>
+
+<pre><code>    &quot;vout&quot;: [
+        {
+            &quot;value&quot;: 0.01500000,
+            &quot;scriptPubKey&quot;: &quot;OP_DUP OP_HASH160 7f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8 OP_EQUALVERIFY OP_CHECKSIG&quot;,
+        },
+        {
+            &quot;value&quot;: 0.08450000,
+            &quot;scriptPubKey&quot;: &quot;OP_DUP OP_HASH160 ab68025513c3dbd2f7b92a94e0581f5d50f654e7 OP_EQUALVERIFY OP_CHECKSIG&quot;
+        }
+    ]
+</code></pre>
+
+<p>我们看到除了支付给小强的0.0845外, 还有一个金额为0.015的输出.
+仔细观察可以发现0.015这个输出中的<code>scriptPubKey</code>与0.1这个输出中的<code>scriptPubKey</code>相等. 也就是说交易输出里的0.015比特币又支付给了交易输入里所引用的交易输出.
+也就是说这个0.015的输出其实是做为找零又支付给了小帅自己.</p>
+
+<p>可我们发现, 输入与输出并不相等, 输入为0.1, 输出为0.0845+0.015=0.995,  差了个0.005.
+而这0.005比特币作为交易费付给了矿工.</p>
+
+<p>再梳理一遍:</p>
+
+<ul>
+<li>小帅要给小强支付比特币.</li>
+<li>比特币存在于交易输出, 被锁定脚本锁定.</li>
+<li>小帅的比特币就在小帅能解锁的所有的交易输出里.</li>
+<li>小帅在自己所能解锁的输出里选择了一个数额为0.1比特币的交易输出.</li>
+<li>小帅提供自己的解锁脚本来证明0.1比特币属于自己.</li>
+<li>小帅把0.1比特币中的0.0845支付给了小强, 0.015找零给了自己, 0.005作为交易费给了矿工.</li>
+</ul>
+
+<p>接下来咱们就一起解剖一下上述例子中的锁定脚本与解锁脚本.</p>
+
+<p>在比特币中解锁脚本与锁定脚本是拼接在一起执行的, 如果返回结果为1, 则解锁成功, 否则为解锁失败.
+如下是这个简单交易中解锁脚本与锁定脚本拼接在一起在示意图:
+<img src="http://static.zybuluo.com/a617137379/pxihzr7mpzkaowlqsup8ja5g/image_1c120avjl2roqaika0v1gnm9.png" alt="image_1c120avjl2roqaika0v1gnm9.png-92.7kB" />
+这个图中将解锁脚本(unlocking script)与锁定脚本(locking script)拼接在了一起.
+其中用<code>&lt;&gt;</code>标示的是数据, 如<code>&lt;Sig&gt;&lt;PubKHash&gt;</code>.
+未用<code>&lt;&gt;</code>标示的是比特币提供的操作指令, 如DUP, HASH160. 操作指令就是用来操作数据的.</p>
+
+<p>比特币脚本是一个基于栈的语言, 数据会被压进栈, 操作指令会取(pop)栈中元素进行操作并把结果压进栈.
+先举一个最最简单的锁定脚本与解锁脚本例子, 如下:
+锁定脚本:<code>3 OP_ADD 5 OP_EQUAL</code>.
+解锁脚本:<code>2</code>.
+将解锁脚本与锁定脚本拼接:<code>2 3 OP_ADD 5 OP_EQUAL</code>.
+脚本的执行过程如下:
+<img src="http://static.zybuluo.com/a617137379/os1y94m5rzs93odff5irz61j/image_1c1258608n9e1hip1s2d1j0k1c929.png" alt="image_1c1258608n9e1hip1s2d1j0k1c929.png-162.5kB" /></p>
+
+<ul>
+<li>脚本中前两个元素<code>2 3</code>都是数据, 依次推进栈里.</li>
+<li>脚本中第三个元素<code>ADD</code>为操作指令, <code>ADD</code>操作指令会将之前推进栈里的两个元素pop出来进行求合, 并把结果返回栈里. 这里栈里只剩一个元素<code>5</code></li>
+<li>脚本中第四个元素<code>5</code>是数据, 推进栈里. 这时候, 栈里有两个元素, 都是<code>5</code>.</li>
+<li>脚本中最后一个元素<code>EQUAL</code>是操作指令, <code>EQUAL</code>操作指令将栈里的两个元素, 也就是两个<code>5</code>, 取出进行比对, 如果相待则返回true(用数字1表示). 显然5与5相等, 解锁成功.</li>
+</ul>
+
+<p>看完最最简单的例子后, 回过头来, 再看小帅支付给小强这个简单交易.</p>
+
+<blockquote>
+<p>深入剖析之前, 需要先复习一下非对称加密:</p>
+
+<ul>
+<li>有一对key, 一个为公钥, 一个为私钥.</li>
+<li>公钥是公开的人人都能知道, 私钥是不公开.</li>
+<li>公钥进行加密, 私钥进行解密.</li>
+<li>私钥进行签名, 公钥进行验签.
+比特币中并未用到非对称加密中的加密, 只用于了签名.</li>
+</ul>
+</blockquote>
+
+<p>在这个简单交易里, 小帅用自己的解锁脚本去解一个数额为0.1比特币的输出, 证明0.1比特币属于自己.
+交易输入如下:</p>
+
+<pre><code>    &quot;vin&quot;: [
+        {
+            &quot;txid&quot;: &quot;7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18&quot;,
+            &quot;vout&quot;: 0,
+            &quot;scriptSig&quot;: &quot;3045022100884d142d86652a3f47ba4746ec719bbfbd040a570b1deccbb6498c75c4ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813[ ALL] 0484ecc0d46f1918b30928fa0e4ed99f16a0fb4fde0735e7ade8416ab9fe423cc5412336376789d172787ec3457eee41c04f4938de5cc17b4a10fa336a8d752adf&quot;,
+            &quot;sequence&quot;: 4294967295
+        }
+    ],
+</code></pre>
+
+<p>解锁脚本<code>scriptSig</code>为:</p>
+
+<pre><code>3045022100884d142d86652a3f47ba4746ec719bbfbd040a570b1deccbb6498c75c4ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813[ ALL] 0484ecc0d46f1918b30928fa0e4ed99f16a0fb4fde0735e7ade8416ab9fe423cc5412336376789d172787ec3457eee41c04f4938de5cc17b4a10fa336a8d752adf
+</code></pre>
+
+<p>第一串数字为小帅的签名, 第二串数字为小帅的公钥, 如下:</p>
+
+<pre><code>&lt;小帅的签名-sig&gt; &lt;小帅的公钥-PubK&gt;
+</code></pre>
+
+<p>交易输入所引用的输出, 如下:</p>
+
+<pre><code> &quot;vout&quot;: [
+        {
+            &quot;value&quot;: 0.1,
+            &quot;scriptPubKey&quot;: &quot;OP_DUP OP_HASH160  7f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8 OP_EQUALVERIFY OP_CHECKSIG&quot;
+        }
+    ]
+</code></pre>
+
+<p>锁定脚本<code>OP_DUP OP_HASH160  7f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8 OP_EQUALVERIFY OP_CHECKSIG</code>为:
+中间那串数据为小帅公钥的hash, 如下:</p>
+
+<pre><code>OP_DUP OP_HASH160 &lt;小帅的公钥hash-PubKHash&gt; OP_EQUALVERIFY OP_CHECKSIG
+</code></pre>
+
+<p>把解锁脚本与锁定脚本拼在一起:</p>
+
+<pre><code>&lt;小帅的签名-sig&gt; &lt;小帅的公钥-PubK&gt; OP_DUP OP_HASH160 &lt;小帅的公钥hash-PubKHash&gt; OP_EQUALVERIFY OP_CHECKSIG
+</code></pre>
+
+<p>以下是这个脚本的执行过程,
+图中<code>&lt;sig&gt;</code>就是小强的签名, <code>&lt;PubK&gt;</code>就是小强的公钥. <code>&lt;PubKHash&gt;</code>就是小强公钥的hash:
+<img src="http://static.zybuluo.com/a617137379/erv7jr9qqr99mx4935hjgoib/image_1c1270cloe4v16v8b6fpb1rt99.png" alt="image_1c1270cloe4v16v8b6fpb1rt99.png-160.4kB" />
+<img src="http://static.zybuluo.com/a617137379/c8fb4yvd4jn0h3fbef33gtui/image_1c127125d1vj31q1o193pi2e1m9hm.png" alt="image_1c127125d1vj31q1o193pi2e1m9hm.png-257.3kB" /></p>
+
+<p>过程描述如下:</p>
+
+<ul>
+<li>脚本的前两个元素<code>&lt;sig&gt;&lt;PubK&gt;</code>为数据, 推进栈.</li>
+<li>脚本的第三个元素<code>DUP</code>为指令, <code>DUP</code>指令会把栈顶元素<code>&lt;PubK&gt;</code>复制一份推进栈.</li>
+<li>脚本的第四个元素<code>HASH160</code>为指令, <code>HASH160</code>指令会把栈顶元素<code>&lt;PubK&gt;</code>进行hash160操作再放回栈.</li>
+<li>脚本的第五个元素<code>&lt;PubKHash&gt;</code>为数据, 推进栈.</li>
+<li>脚本的第六个元素<code>EQUALVERIFY</code>为指令, 会pop出两个元素进行对比. 如果相待继续执行, 如果不等脚本退出, 执行失败.</li>
+<li>现在栈里剩下<code>&lt;sig&gt;&lt;PubK&gt;</code>两个元素, 脚本的最后一个元素<code>CHECKSIG</code>为指令, 就是对最后剩下的这两个元素进行判断, 用第一个元素<code>&lt;PubK&gt;</code>去验证<code>&lt;sig&gt;</code>是否正确.</li>
+<li>如果可以验证成功并且这个交易已部署到区块链里中, 则小帅就拥有了这0.0845个比特币.</li>
+</ul>
+
+<p>这种类型的脚本或是说<code>智能合约</code>在现在的比特币里最为常见.
+我们把这种交易命名<code>Pay-to-Public-Key-Hash (P2PKH)</code>, 中文译为<code>支付给公钥</code>.</p>
+
+<p>除了这种<code>合约</code>, 还有一种复杂点的<code>合约</code>也比较常见, 叫<code>Multisignature</code>, 多签交易.</p>
+
+<h3 id="一个多签交易">一个多签交易</h3>
+
+<p>了解了简单交易, 那么了解多签交易就简单了.
+多签交易可以理解为把比特币支付给了一堆公钥地址, 需要这堆公钥地址中的某几个或全部提供签名才能解锁.</p>
+
+<p>多签锁定脚本的一般形式如下:</p>
+
+<pre><code>M &lt; Public Key 1 &gt; &lt; Public Key 2 &gt; ... &lt; Public Key N &gt; N CHECKMULTISIG
+</code></pre>
+
+<p>需要提供锁定脚本里这N个公钥中的M个公钥所对应的私钥才能解锁脚本.</p>
+
+<p>比如下面这个多签解锁脚本:</p>
+
+<pre><code>2 &lt; Public Key A &gt; &lt; Public Key B &gt; &lt; Public Key C &gt; 3 CHECKMULTISIG
+</code></pre>
+
+<p>需要要提供三个公钥中的两个公钥所对应的私钥才能解锁脚本. 比如:</p>
+
+<pre><code>&lt; Signature B &gt; &lt; Signature C &gt;
+</code></pre>
+
+<p>把解锁脚本与锁定脚本拼在一起</p>
+
+<pre><code>&lt; Signature B &gt; &lt; Signature C &gt; 2 &lt; Public Key A &gt; &lt; Public Key B &gt; &lt; Public Key C &gt; 3 CHECKMULTISIG
+</code></pre>
+
+<p>这个脚本把除了最后个元素<code>CHECKMULTISIG</code>为指令外其他都为数据.
+<code>CHECKMULTISIG</code>指令很强大, 它会判断解锁脚本中是否提供了锁定脚本里3个公钥中的2个公钥所对应的正确私钥.</p>
+
+<p>除了简单交易-支付给公钥与多签交易后, 其实还有一个目前广泛使用的更加强大的<code>Pay-to-Script-Hash (P2SH)</code>, 支付给脚本.</p>
+
+<p>虽然多签很强大, 但是使用起来并不方便:</p>
+
+<ul>
+<li>每次支付都需要收款方提供一下锁定脚本. 因为支付方需要在交易的输出里写入这个锁定脚本.</li>
+<li>因为其中包含了多个公钥, 锁定脚本往往很大, 导致交易大小很大, 导致交易费很高. 明明的收款方的原因, 却要由支付方来承担, 不合理.</li>
+</ul>
+
+<p>这时<code>Pay-to-Script-Hash (P2SH)</code>支付给脚本方式的交易诞生了, 解决了上述的问题. 这个很牛逼.</p>
+
+<p><code>P2SH</code>之前的脚本:
+锁定脚本:<code>2 PubKey1 PubKey2 PubKey3 PubKey4 PubKey5 5 CHECKMULTISIG</code>
+解锁脚本:<code>Sig1 Sig2</code></p>
+
+<p><code>P2SH</code>之后的脚本:
+赎回脚本:<code>2 PubKey1 PubKey2 PubKey3 PubKey4 PubKey5 5 CHECKMULTISIG</code>
+锁定脚本:<code>HASH160 &lt;赎回脚本的hash值&gt; EQUAL</code>
+解锁脚本:<code>Sig1 Sig2 &lt;赎回脚本&gt;</code></p>
+
+<blockquote>
+<p>赎回脚本这里是我自己翻遍的. 英文为<code>Redeem Script</code>.</p>
+</blockquote>
+
+<p>可以看出原来的锁定脚本现在变为赎回脚本放到了解锁脚本里, 而现在的锁定脚本只记录了赎回脚本也就是原来锁定脚本的hash值.这大大减轻了锁定脚本的大小.</p>
+
+<p>把解锁脚本与锁定脚本拼接在一起:
+<code>Sig1 Sig2 &lt;赎回脚本&gt; HASH160 &lt;赎回脚本的hash值&gt; EQUAL</code></p>
+
+<p>执行过程:</p>
+
+<ul>
+<li>将Sig1, Sig2, 赎回脚本都是数据. 依次推进栈.</li>
+<li><code>HASH160</code>为指令. 从栈顶取出赎回脚本计算hash值, 将hash结果推进栈.</li>
+<li><code>&lt;赎回脚本的hash值&gt;</code>为数据, 推进栈.</li>
+<li>这时栈前两个元素都是赎回脚本的hash值.指令<code>EQUAL</code>取出这两个hash值, 并对比这两个值是否相等.</li>
+<li>如果相等, 则执行赎回脚本. 这时的逻辑和多签脚本中所说的逻辑一致.</li>
+</ul>
+
+<p>解锁脚本与锁定脚本可以按照自己的需求来编写, 只要符合比特币的规则.
+接下来看一个自定义的脚本, 更复杂的一个例子.</p>
+
+<h3 id="一个自定义交易">一个自定义交易</h3>
+
+<p>设计这么一个脚本或是合约, 达到以下目的:</p>
+
+<ul>
+<li>只要有小帅, 小强, 小壮, 3个人中的2个人的签名, 可以解锁锁定脚本.</li>
+<li>或者有小景的签名, 可以解锁脚本.</li>
+</ul>
+
+<p>那么这个合约, 可以这样写:</p>
+
+<pre><code>IF
+ 2 &lt;小帅公钥&gt; &lt;小强公钥&gt; &lt;小壮公钥&gt; 3 CHECKMULTISIG
+ELSE
+ OP_DUP OP_HASH160 &lt;小景公钥的hash&gt; OP_EQUALVERIFY OP_CHECKSIG
+ENDIF
+</code></pre>
+
+<p>如果小帅, 小强, 小壮想解决脚本, 则解决脚本如下:</p>
+
+<pre><code>&lt;小帅签名&gt; &lt;小强签名&gt; true
+</code></pre>
+
+<p>如果小景想解锁脚本, 则解锁脚本如下:</p>
+
+<pre><code>&lt;小景签名&gt; &lt;小景公钥&gt; false
+</code></pre>
+
+<p>这两个解锁脚本后面的<code>true</code>与<code>false</code>是为了控制锁定脚本中的条件语句的.</p>
+
+<h2 id="以太坊中的智能合约">以太坊中的智能合约</h2>
+
+<p>上一部分我们知道, 比特币中的智能合约存在于交易的输入输出中, 交易输入中的解锁脚本去解交易输出中的锁定脚本, 来完成合约执行.
+要理解以太坊的智能合约, 需要暂且把比特币的智能合约忘掉, 这样可能会更容易理解. 当初我学完比特币后, 开始学的以太坊, 总拿比特币中的知识去往以太坊来靠, 结果各种晕. 其实以太坊相对比特币更容易理解.</p>
+
+<p>要理解以太坊中的智能合约, 首先需要理解这么几个以太坊中的概念:</p>
+
+<h3 id="基础概念">基础概念</h3>
+
+<ul>
+<li><strong>账户</strong>
+在比特币的实现本身并没有账户这个概念. 在比特币中要获得某人账户的余额, 需要把这个人能解锁的所有锁定脚本中的余额全加起来. 比特币钱包中余额就把比特币区块链中所有交易遍历一遍找到钱包拥有者所能解锁的输出脚本, 并将其中的金额加起来实现的. 当然, 钱包为什么能很快展现出余额, 是因为使用了缓存.
+而在以太坊的实现中是直接就有账户这个抽象, 发起交易就是从一个账户转钱给别一个账户, 一个账户的余额减少, 另一个账户的余额增加, 和咱们熟悉的银行转账一样.
+这种账户在以太坊中称为外部账户, 简称账户. 以太坊账户的余额是存在于以太坊区块链中的, 直接就可以获得, 不需要像比特币那么费劲遍历输出脚本.
+账户有地址, 地址就是公私钥中的公钥, 这个与比特币类似.</li>
+</ul>
+
+<p>在以太坊中还有另一个账户, 叫合约账户, 简称合约. 在以太坊中说合约, 其实说的是合约账户. 以太坊中的合约有余额, 有地址, 最重要的是还有自己的存储.
+应用可以利用合约的存储来存一些应用需要的东西, 之后的例子会说明.</p>
+
+<blockquote>
+<p>为了方便, 以下说起账户都是指外部账户, 说起合约都是指合约账户.</p>
+</blockquote>
+
+<ul>
+<li><strong>交易与消息</strong>
+以太坊中交易就是指从账户(简称账户)发起的由账户的私钥进行签名的一个消息体.
+以太坊中的交易可以从账户发到另一个账户, 也可以由账户发到一个合约.
+从一个账户到另一个账户的交易类似比特币中的简单交易, 将一些以太币转到另一个账户.
+从一个账户到一个合约的交易, 把账户所拥有的以太币转到合约的余额里并触发合约的执行.</li>
+</ul>
+
+<p>以太坊中的消息是指由一个合约发起的到另一个合约的消息体, 把合约中的以太币转到另一个合约的余额里并触发另一个合约的执行.</p>
+
+<p>交易与消息有如下区别:</p>
+
+<ul>
+<li>交易只能由账户发出. 消息只能由合约发出.</li>
+<li>交易的对方可以是账户也可以是合约, 消息的对方只能是合约.</li>
+<li>交易必须由账户的私钥签名, 消息不用签名.</li>
+</ul>
+
+<p>了解了账户, 合约, 交易, 消息的概念后, 那么他们之间是什么关系呢? 在以太坊中他们是如何串起来的?</p>
+
+<p>账户发起交易, 交易触发合约, 合约发送消息到另外的合约, 可以理解为合约调用其他合约, 伴随着交易与合约的执行, 账户的余额, 合约的余额, 合约的存储都会发生变化.
+可以这么理解, 整个区块链就是个数据库, 记录了账户的余额, 合约的余额, 合约的存储, 而想要改变这个数据库中的值必须发起交易, 用交易以及交易所触发的合约来改变这个数据库中的值.
+交易的发起只能来自账户, 所以账户是整个区块链状态改变的源动力来源.</p>
+
+<h4 id="交易与合约关系">交易与合约关系</h4>
+
+<p>以太坊中交易的结构如下:</p>
+
+<ul>
+<li>交易的接收者. 可以是合约也可以是账户.</li>
+<li>签名. 用户账户私钥对交易进行签名.</li>
+<li>转账的金额.</li>
+<li>一个可选的<code>data</code>字段. 详情见交易与合约的关系.</li>
+<li>交易费相关的燃气值<code>STARTGAS</code>与燃气单价<code>GASPRICE</code>.</li>
+</ul>
+
+<p>如下, 调用以太坊接口, 获得某个交易的内容:</p>
+
+<pre><code>var transaction = web3.eth.getTransaction('0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b');
+console.log(transaction);
+/*
+{
+  &quot;hash&quot;: &quot;0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b&quot;,
+  &quot;nonce&quot;: 2,
+  &quot;blockHash&quot;: &quot;0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46&quot;,
+  &quot;blockNumber&quot;: 3,
+  &quot;transactionIndex&quot;: 0,
+  &quot;from&quot;: &quot;0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b&quot;,
+  &quot;to&quot;: &quot;0x6295ee1b4f6dd65047762f924ecd367c17eabf8f&quot;,
+  &quot;value&quot;: BigNumber,
+  &quot;gas&quot;: 314159,
+  &quot;gasPrice&quot;: BigNumber,
+  &quot;input&quot;: &quot;0x57cb2fc4&quot;
+}
+*/
+</code></pre>
+
+<p>以太坊中交易与合约关系如下:</p>
+
+<ul>
+<li>合约的创建是来交易创建的.
+发起一个接收者为空的交易, data中写入合约代码, 就会创建一个合约.<br /></li>
+</ul>
+
+<p>如下, 创建一个合约:</p>
+
+<pre><code>// compiled solidity source code using https://chriseth.github.io/cpp-ethereum/
+var code = &quot;603d80600c6000396000f3007c01000000000000000000000000000000000000000000000000000000006000350463c6888fa18114602d57005b6007600435028060005260206000f3&quot;;
+
+web3.eth.sendTransaction({data: code}, function(err, transactionHash) {
+  if (!err)
+    console.log(transactionHash); // &quot;0x7f9fade1c0d57a7af66ab4ead7c2eb7b11a91385&quot;
+});
+</code></pre>
+
+<ul>
+<li>合约的调用是由交易来触发调用的.
+发起一个接收者为合约地址的交易, data写入调用合约的代码, 则触发合约相关方法的执行.</li>
+<li>在比特币中合约存在于交易的输入输出中, 而在以太坊中交易与合约是分开存储的.</li>
+</ul>
+
+<h4 id="与比特币智能合约区别">与比特币智能合约区别</h4>
+
+<p>以太坊中的智能合约比比特币中的智能合约强大.</p>
+
+<ul>
+<li>以太坊中的智能合约与交易是分开的单独存储.
+比特币中的智能合约存在于交易的输入与输出中, 而以太</li>
+<li>以太坊的智能合约对开发人员更友好, 更完备.
+可以用都比较熟悉的类似javascript语言的代码来编写合约. 合约进行编译后运行在以太坊虚拟机evm上. 这里的虚拟机evm可以类比为java虚拟机jvm.</li>
+<li>以太坊的合约语言图灵完备, 而比特币是图灵不完备的.
+比如比特币为了防止在支付时发生阻塞, 不支持循环语句.
+以太坊支持, 以太坊根据代码执行所占资源收取交易费来阻止恶意循环.</li>
+<li>以太坊合约有状态, 比特币合约没有.
+以太坊中的合约其实全称为合约账户, 有自己的状态. 比如合约的余额, 合约的存储.
+而比特币的合约是没有状态的. 这大大限制了合约的作用.</li>
+<li>以太坊合约可以获取区块中的数据, 比特币不能.
+比如以太坊中的合约可以拿到上一个区块的hash值等.</li>
+<li>由于以太坊智能合约的强大, 导致合约可以写的很复杂, 而复杂必然会导致合约更容易产生bug.
+像比特币正因为合约语法简单, 限制多, 所以非常健壮, 诞生之间未出现严重bug.</li>
+</ul>
+
+<p>以太坊做了整个区块链的基础设施, 而把合约的编写抛给了用户, 让用户可以根据自己的业务需求只编写合约, 而不用费劲再自己搭一个区块链.
+那么接下来我们就通过几个合约例子, 来加深理解一下以太坊智能合约.</p>
+
+<h3 id="写几个合约">写几个合约</h3>
+
+<h4 id="一个简单的交易合约">一个简单的交易合约</h4>
+
+<p>在以太坊中, 像小帅支付给小强5个以太币这样的简单交易是不需要写智能合约的.
+以太坊本身就支持, 调用以太坊接口:</p>
+
+<pre><code>web3.eth.sendTransaction(transactionObject [, callback])
+/*
+transactionObject中包含了小帅的地址, 小强的地址, 以太转多少以太币.
+*/
+</code></pre>
+
+<p>底层也是通过用私钥签名, 用公钥进行验签来实现的.
+比如小帅发起向小强支付5个以太币的交易, 该交易会把小帅的私钥签名. 以太坊节点收到这个交易后会用小帅的公钥地址去验签此交易的签名.</p>
+
+<h4 id="一个多签交易合约">一个多签交易合约</h4>
+
+<p>在比特币中的多签交易的实现, 是把比特币支付给一个需要多人签名才能解锁输出脚本中.
+在以太坊中, 则是把以太币支付给一个需要提供多人签名才能转出余额的合约中. 也就是先把以太币转到一个合约里, 而合约代码控制了合约余额的转出需要多人签名.</p>
+
+<p>在以太坊中实现多签交易的合约代码如下:</p>
+
+<pre><code>pragma solidity 0.4.15;
+contract SimpleMultiSig {
+
+  uint public nonce;                // (only) mutable state
+  uint public threshold;            // immutable state
+  mapping (address =&gt; bool) isOwner; // immutable state
+  address[] public ownersArr;        // immutable state
+
+  //构造方法, 创建一个合约只当具有owners中的threshold_个签名, 才可以把合约中的币转出去.
+  function SimpleMultiSig(uint threshold_, address[] owners_) {
+    require(owners_.length &lt;= 10 &amp;&amp; threshold_ &lt;= owners_.length &amp;&amp; threshold_ != 0);
+
+    address lastAdd = address(0); 
+    for (uint i=0; i&lt;owners_.length; i++) {
+      require(owners_[i] &gt; lastAdd);
+      isOwner[owners_[i]] = true;
+      lastAdd = owners_[i];
+    }
+    ownersArr = owners_;
+    threshold = threshold_;
+  }
+
+  //把合约中的币转到destination这个地址. 其中sigV, sigR, sigS是签名相关数据.
+  function execute(uint8[] sigV, bytes32[] sigR, bytes32[] sigS, address destination, uint value, bytes data) {
+    require(sigR.length == threshold);
+    require(sigR.length == sigS.length &amp;&amp; sigR.length == sigV.length);
+
+    //签名算法: https://github.com/ethereum/EIPs/issues/191
+    bytes32 txHash = keccak256(byte(0x19), byte(0), this, destination, value, data, nonce);
+
+    address lastAdd = address(0); // cannot have address(0) as an owner
+    //以下证明签名中包含至少threshold个正确签名.
+    for (uint i = 0; i &lt; threshold; i++) {
+        address recovered = ecrecover(txHash, sigV[i], sigR[i], sigS[i]);
+        require(recovered &gt; lastAdd &amp;&amp; isOwner[recovered]);
+        lastAdd = recovered;
+    }
+
+    //如果程序能走到这里, 证明至少有threshold个正确签名.
+    nonce = nonce + 1;
+    require(destination.call.value(value)(data));
+  }
+
+  function () payable {}
+}
+</code></pre>
+
+<blockquote>
+<p>以太坊签名规范:<a href="https://github.com/ethereum/EIPs/issues/191">https://github.com/ethereum/EIPs/issues/191</a></p>
+</blockquote>
+
+<p>官方多签合约:<code>https://github.com/ethereum/dapp-bin/blob/master/wallet/wallet.sol</code>
+官方多签规范协议:<code>https://github.com/ethereum/EIPs/issues/763</code>
+官方多签有更多的功能, 比如限制每天的提取限额, 大额需要多签, 小额免多签.
+从官方多签合约可以看出以太坊合约的灵活与强大.</p>
+
+<h4 id="一个简单的ico交易合约">一个简单的ICO交易合约</h4>
+
+<p>ICO就是首次发行代币, 背后的实现就是数字代币, 以下是一个以太坊中简单的数据代币合约的实现:</p>
+
+<pre><code>pragma solidity ^0.4.0;
+
+contract Coin {
+    //谁可以发行币
+    address public minter;
+    //每个账户的代币余额
+    mapping (address =&gt; uint) public balances;
+
+    //转账事件, client可以订阅收到这个事件
+    event Sent(address from, address to, uint amount);
+
+    //合约构造方法, 创建合约时执行, 只执行一次. 
+    //合约一旦创建, minter不能再修改. 因为没有提供修改miner的方法.
+    function Coin() public {
+        minter = msg.sender;
+    }
+
+    //改变账户币的余额
+    function mint(address receiver, uint amount) public {
+        if (msg.sender != minter) return;
+        balances[receiver] += amount;
+    }
+
+    //转账, 将交易发起者(msg.sender)的amount代币转给receiver.
+    function send(address receiver, uint amount) public {
+        if (balances[msg.sender] &lt; amount) return;
+        balances[msg.sender] -= amount;
+        balances[receiver] += amount;
+        Sent(msg.sender, receiver, amount);
+    }
+}
+</code></pre>
+
+<p>可以看到实现一个数字代码, 特别简单.</p>
+
+<p>所以搞一个ICO骗钱在技术没有成本, 主要地要把界面, 宣传搞好. 像之前这个来钱太他妈容易了. 无本万利.</p>
+
+<h5 id="说说迅雷链克区块链">说说迅雷链克区块链</h5>
+
+<p>迅雷最近在区块链上特别火, 被誉为中国区块链领头羊, 迅雷CEO陈磊说是中国区块链之父, 牛逼吹的特别大.
+而迅雷其实就是用以太坊建立了一个私有网络的区块链并在这个私有网络区块链上写了个数字代币合约, 可能比上述例子复杂点, 但原理差不多. 迅雷更低级的是区块链的打包全是由迅雷服务器来做的, 美其名曰具有中国特色的区块链.</p>
+
+<p>在以太币公有网络上的其他代币起码还是去中心不可篡改的特性, 但迅雷完全就把区块链当成一个中心数据库用, 完全由迅雷控制, 简直就是迅雷的印钞机.</p>
+
+<h3 id="实际操作一下">实际操作一下</h3>
+
+<p>接下来我们用以太坊搭建一个私有网络的属于自己的区块链, 编写一个数据认证的智能合约并部署到私有网络的区块链上.</p>
+
+<blockquote>
+<p>私有网络的区块链与联盟链是不同的概念.
+私有网络区块链是说建立一条与以太坊公有链不同的另一个公有链.
+而私有链是指只有特定的一些人才可以参与的区链链.
+如果把私有网络的区块链建立在一个局域网内, 只有局域网内的人才能参与, 那么这样的私有网络区块链也就是联盟链了.</p>
+</blockquote>
+
+<h4 id="搭建一个私有网络的区块链">搭建一个私有网络的区块链</h4>
+
+<h5 id="安装">安装</h5>
+
+<h6 id="安装geth">安装geth</h6>
+
+<p>安装以太坊go语言版客户端</p>
+
+<pre><code>sudo yum install golang
+sudo yum install gmp-devel
+git clone https://github.com/ethereum/go-ethereum
+cd go-ethereum/
+make geth
+ls -al  build/bin/geth
+</code></pre>
+
+<p>中间遇到iconv库的链接问题, 解决:</p>
+
+<pre><code>rm /usr/local/include/iconv.h
+</code></pre>
+
+<h6 id="安装solc">安装solc</h6>
+
+<p>合约语言Solidity的编译器</p>
+
+<pre><code>npm install -g solc
+</code></pre>
+
+<h6 id="启动">启动</h6>
+
+<p>私有网络并不是私链.
+创建文件<code>genesis.json</code> 以下内容</p>
+
+<pre><code>{
+    &quot;config&quot;: {
+        &quot;chainId&quot;: 11988,
+        &quot;homesteadBlock&quot;: 0,
+        &quot;eip155Block&quot;: 0,
+        &quot;eip158Block&quot;: 0
+    },
+    &quot;difficulty&quot;: &quot;0x400&quot;,
+    &quot;gasLimit&quot;: &quot;0x8000000&quot;,
+    &quot;alloc&quot;: {}
+}
+</code></pre>
+
+<p>其中</p>
+
+<ul>
+<li><code>difficulty</code>为初始打包也就是挖矿的难度, 因为是私有网络初始设低一点.</li>
+<li><code>chainId</code>链的id,不同链链id不一样, 写一个自己的和公有的区分开.</li>
+</ul>
+
+<p>运行以下命令启动两个节点:
+初始化</p>
+
+<pre><code>geth --datadir ./node1/ init ./genesis.json
+geth --datadir ./node2/ init ./genesis.json
+</code></pre>
+
+<p>这时初始化两个节点, 但并没有启动.</p>
+
+<p>为了节点之间互相能知道, 一种方法是启动节点时指定, 另一个是使用bootnode节点, 启动时都连接bootnode节点, 这样就可以从bootnode中获得其他节点的信息.</p>
+
+<p>启动bootnode</p>
+
+<pre><code>bootnode -genkey bootnode.key
+bootnode -nodekey bootnode.key -addr &quot;:9100&quot; -verbosity 6
+</code></pre>
+
+<p>第一条命令生成key, 我理解就是这个bootnode的id.
+第二条命令是启动bootnode节点.</p>
+
+<p>启动这两个节点</p>
+
+<pre><code>geth --networkid 11988 --datadir ./node1/ --syncmode &quot;full&quot; --rpc --rpcapi db,eth,net,web3,personal --port 19101 --rpcport 9101 --rpcaddr 127.0.0.1 --rpccorsdomain &quot;*&quot; -bootnodes enode://8f10b7c8ecb0b04baac38c0d17e7ebe1e15320b19ccc36ad90aa197c02346e46bcc9d2d058cdd401f8e1cf928b724178c673a9c5df3395131e808e76620a2656@127.0.0.1:9100
+geth --networkid 11988 --datadir ./node2/ --syncmode &quot;full&quot; --rpc --rpcapi db,eth,net,web3,personal --port 19102 --rpcport 9102 --rpcaddr 127.0.0.1 --rpccorsdomain &quot;*&quot; --bootnodes &quot;enode://8f10b7c8ecb0b04baac38c0d17e7ebe1e15320b19ccc36ad90aa197c02346e46bcc9d2d058cdd401f8e1cf928b724178c673a9c5df3395131e808e76620a2656@127.0.0.1:9100&quot;
+</code></pre>
+
+<p>其中</p>
+
+<ul>
+<li><code>networdid</code>也chainId相同.</li>
+<li><code>port</code>指定节点间互相通过的端口.</li>
+<li><code>rpcport</code>指定节点对外显露的接口所用的端口.</li>
+</ul>
+
+<h5 id="创建账户">创建账户</h5>
+
+<p>启动后在每个节点的目录下会有一个geth.ipc文件, 这个文件用来连接节点时用.</p>
+
+<p>连接节点创建外部账户</p>
+
+<pre><code>geth attach /home/dev/git/blockchain/my-private-ethereum/node1/geth.ipc
+web3.eth.accounts
+personal.newAccount()
+web3.eth.accounts
+eth.getBalance(web3.eth.accounts[0])
+</code></pre>
+
+<p>这样就创建了一个账户并且账户的余额为0.</p>
+
+<h5 id="挖点矿">挖点矿</h5>
+
+<p>为了搞点余额我们可以进行挖矿
+开始挖矿</p>
+
+<pre><code>miner.start()
+</code></pre>
+
+<p>可以在node1节点的日志中看到如下:</p>
+
+<pre><code>INFO [12-28|15:53:50] 🔗 block reached canonical chain          number=5  hash=4a6b09…5f5812
+INFO [12-28|15:53:50] 🔨 mined potential block                  number=10 hash=f4c71b…518dfb
+INFO [12-28|15:53:50] Commit new mining work                   number=11 txs=0 uncles=0 elapsed=127.859µs
+INFO [12-28|15:53:50] Generating DAG in progress               epoch=1 percentage=47 elapsed=19.980s
+INFO [12-28|15:53:51] Successfully sealed new block            number=11 hash=71d1ee…1aa278
+INFO [12-28|15:53:51] 🔗 block reached canonical chain          number=6  hash=6e7a6e…a7774d
+INFO [12-28|15:53:51] 🔨 mined potential block                  number=11 hash=71d1ee…1aa278
+INFO [12-28|15:53:51] Commit new mining work                   number=12 txs=0 uncles=0 elapsed=125.815µs
+INFO [12-28|15:53:51] Generating DAG in progress               epoch=1 percentage=48 elapsed=20.811s
+INFO [12-28|15:53:51] Successfully sealed new block            number=12 hash=6009b7…506641
+INFO [12-28|15:53:51] 🔗 block reached canonical chain          number=7  hash=2116bb…8e6948
+INFO [12-28|15:53:51] 🔨 mined potential block                  number=12 hash=6009b7…506641
+INFO [12-28|15:53:51] Commit new mining work                   number=13 txs=0 uncles=0 elapsed=157.238µs
+INFO [12-28|15:53:51] Successfully sealed new block            number=13 hash=cf04e9…baac3b
+INFO [12-28|15:53:51] 🔗 block reached canonical chain          number=8  hash=011c78…454cf2
+INFO [12-28|15:53:51] 🔨 mined potential block                  number=13 hash=cf04e9…baac3b
+</code></pre>
+
+<p>这时再查看余额</p>
+
+<pre><code>eth.getBalance(web3.eth.accounts[0])
+45000000000000000000
+</code></pre>
+
+<p>发现余额已经增加了. 这里显示的单位为wei. 相当于45个以太币.</p>
+
+<blockquote>
+<p>以太的转换可以使用这个网址:<a href="https://etherconverter.online/">https://etherconverter.online/</a></p>
+</blockquote>
+
+<p>现在我们有钱了, 那就可以部署和执行合约.
+接下来我们写一个数字认证的合约, 并部署到区块链上.</p>
+
+<h4 id="编写一个数字认证智能合约并部署到区块链">编写一个数字认证智能合约并部署到区块链</h4>
+
+<ol>
+<li>安装web3环境
+<code>
+npm install web3@0.20.1 solc
+</code></li>
+
+<li><p>智能合约如下:</p>
+
+<pre><code>pragma solidity ^0.4.0;
+// 数字认证 存在证明
+contract ProofOfExistence {
+
+mapping (bytes32 =&gt; bool) proofs;
+
+// 存储证明到合约中
+function storeProof(bytes32 proof) {
+    proofs[proof] = true;
+}
+
+// 检查证明是否存在
+function hasProof(bytes32 proof) returns (bool) {
+    return proofs[proof];
+}
+}
+</code></pre></li>
+
+<li><p>部署合约
+node进入</p>
+
+<pre><code>Web3 = require('web3')
+//9102为启动节点时设置的接口所用的端口
+web3 = new Web3(new Web3.providers.HttpProvider(&quot;http://localhost:9101&quot;));
+//查一下有没有账户
+web3.eth.accounts
+//创建一个账户, 如果没有的话, 由于我们已经用geth创建了所以这里是有账户的
+web3.personal.newAccount('abcd')
+//再次调用, 发现有了账户
+web3.eth.accounts
+//查看余额, 由于我们挖了会矿, 所以账户是有余额的
+web3.eth.getBalance(web3.eth.accounts[0])
+//解锁账户, 如果没有解锁的话
+web3.personal.unlockAccount(web3.eth.accounts[0], 'abcd', 15000)
+//读取合约代码
+code = fs.readFileSync('ProofOfExistence.sol').toString()
+//加载solidity编译器
+solc = require('solc')
+//编译代码
+compiledCode = solc.compile(code)
+//生成abi
+abiDefinition = JSON.parse(compiledCode.contracts[':ProofOfExistence'].interface)
+//创建合约
+VotingContract = web3.eth.contract(abiDefinition)
+//拿到合约字节码
+byteCode = compiledCode.contracts[':ProofOfExistence'].bytecode
+//将合约字节码 部署到区块链
+deployedContract = VotingContract.new({data: '0x' + byteCode, from: web3.eth.accounts[0], gas: 5000000})
+//查看合约地址, 会发现合约地址为空, 这里因为合约尚未打包到区块里, 这里重启开启挖矿来打包区块. 再次查看就有地址了
+deployedContract.address
+</code></pre></li>
+
+<li><p>调用合约</p>
+
+<pre><code>//拿到合约实例
+contractInstance = VotingContract.at(deployedContract.address)
+//调用合约方法, 参数中的hash值是通过调用php方法hash(&quot;sha256&quot;, &quot;abcdefgxxx合同&quot;)获得的
+contractInstance.storeProof(0x27a2df9c083e06109dfeb9633c711b796e0bd85ac049f5f55646d31def21b833)
+//如果报invalid address, 那是因为默认的交易发送者, 执行以下, 再执行以上命令就好了
+web3.eth.defaultAccount = web3.eth.accounts[0]
+//contractInstance.storeProof执行成功后, 会返回一个地址, 这个地址为这次交易的地址, 执行以下可以查看这个交易
+web3.eth.getTransaction('交易地址')
+//返回如下结果
+{ blockHash: '0x0000000000000000000000000000000000000000000000000000000000000000',
+blockNumber: null,
+from: '0xb19c93e4ed8553f0c8bbef8a59deba54215695bb',
+gas: 90000,
+gasPrice: BigNumber { s: 1, e: 10, c: [ 18000000000 ] },
+hash: '0xcafc78b00868c7bd45ecbb7b9e8cf4fa4f68aa10246c76319757202af1633175',
+input: '0x8952877b27a2df9c083e05f415c1c1c1ce3059e749c7a4ff96d5b08b3000000000000000',
+nonce: 1,
+to: '0x1efe34a3fe3b46e59fed454e86dfead63efd243d',
+transactionIndex: 0,
+value: BigNumber { s: 1, e: 0, c: [ 0 ] },
+v: '0x5dcb',
+r: '0x3cf890381f951e1aeec61d61646be95926be8dd0436829674f3d60eb8fcf4ad5',
+s: '0x6070af4a62306071677db9aa0016ea4e9dc4d78a76a97a108203f47f232a8f87' }
+//blockHash为0000...是因为尚未打包, 现在没有blockhash. 启动矿工再次打包, 后再执行, 结果如下
+{ blockHash: '0xf770e050eb0edde3ac6a9501790ec66f4d239978c3374e98940e2bcd8c2d8a90',
+blockNumber: 36,
+from: '0xb19c93e4ed8553f0c8bbef8a59deba54215695bb',
+gas: 90000,
+gasPrice: BigNumber { s: 1, e: 10, c: [ 18000000000 ] },
+hash: '0xcafc78b00868c7bd45ecbb7b9e8cf4fa4f68aa10246c76319757202af1633175',
+input: '0x8952877b27a2df9c083e05f415c1c1c1ce3059e749c7a4ff96d5b08b3000000000000000',
+nonce: 1,
+to: '0x1efe34a3fe3b46e59fed454e86dfead63efd243d',
+transactionIndex: 0,
+value: BigNumber { s: 1, e: 0, c: [ 0 ] },
+v: '0x5dcb',
+r: '0x3cf890381f951e1aeec61d61646be95926be8dd0436829674f3d60eb8fcf4ad5',
+s: '0x6070af4a62306071677db9aa0016ea4e9dc4d78a76a97a108203f47f232a8f87' }
+//可以看到blockHash有值.
+//咱们再次调用另外的hasProof方法看看, 如下
+contractInstance.hasProof(0x27a2df9c083e06109dfeb9633c711b796e0bd85ac049f5f55646d31def21b833)
+//发现又返回了个交易地址, 我们的hashProof只是个查询方法, 没必须发起交易, 用如下方式来查询
+contractInstance.hasProof.call(0x27a2df9c083e06109dfeb9633c711b796e0bd85ac049f5f55646d31def21b833).toLocaleString()
+//返回true, 证明区块链里有这个key, 也就进行了数据证明
+</code></pre></li>
+</ol>
+
+<p><strong>在以前, 有很多同学直接用geth部署, 目前由于web3.eth.compile.solidity已在1.6版本去掉, 所以以下方式已废弃.</strong></p>
+
+<pre><code>var proofOfExistence = 'contract ProofOfExistence { mapping (bytes32 =&gt; bool) proofs;  function storeProof(bytes32 proof) { proofs[proof] = true; }  function hasProof(bytes32 proof) returns (bool) { return proofs[proof]; } }';
+var proofCompiled = web3.eth.compile.solidity(proofOfExistence)
+proofCompiled
+var proofContract = web3.eth.contract(proofCompiled.ProofOfExistence.info.abiDefinition);
+var proofHash = '27a2df9c083e06109dfeb9633c711b796e0bd85ac049f5f55646d31def21b833'
+var proof = proofContract.new(proofHash, {from: eth.accounts[0], data: proofCompiled.ProofOfExistence.code, gas: 4000000}, 
+  function(e, contract) {
+    if (!e) {
+      if (!contract.address) {
+        console.log(&quot;Contract transaction send: TransactionHash: &quot; +
+          contract.transactionHash + &quot; waiting to be mined...&quot;);
+      } else {
+        console.log(&quot;Contract mined! Address: &quot; + contract.address);
+        console.log(contract);
+      }
+    } 
+  })
+</code></pre>
+
+<h2 id="聊一下区块链在业务中的应用">聊一下区块链在业务中的应用</h2>
+
+<p><strong>数字证明</strong>
+业务中有很多电子合同, 可以利用区块链的不可篡改的特性以及hash的碰撞阻力特性, 我们可以对电子合同内容进行hash, 然后将hash结果存储到区块链里, 这样我们不能证明确定有这份合同的存在.</p>
+
+<p><strong>代币激励</strong>
+可以发行代币, 用代币的方式来激励用户的一些行为. 类似迅雷的模式, 用代币去激励用户进行分享宽带.
+投标时, 我们可以用代币来激励大胖子去吃小胖子.</p>
+
+<p><strong>统一账本</strong>
+公司与其他公司建立联盟, 搭建一个联盟链, 将所的账都记在联盟链里. 这样就不用再去各种对账了.</p>
+
+<p><strong>以太猫</strong>
+类似以太猫, 基于区块链的游戏, 比如发行各种各样的信仔. 男信仔与女信仔, 互相还能生儿子之类的.</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">olOwOlo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2017-12-29</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/stompoverwebsocket/">
+            <span class="next-text nav-default">stomp over websocket协议原理与实现</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">olOwOlo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=2.7.0"></script>
+
+
+
+
+</body>
+</html>
