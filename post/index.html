@@ -117,6 +117,33 @@
 
         </div>
       
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        January 1, 0001
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/stomp-over-websocket%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0/" class="link black dim">
+        
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      stomp over websocket协议原理与实现 标签（空格分隔）： 分享
+[toc]
+本文你将学习到  websocket协议原理. stomp协议原理. websocket协议的缺点, 为什么websocket协议需要stomp协议来补充. spring websocket架构与实现. spring websocket的性能优化. 如果使用java编写stomp over websocket协议的client.  stomp over websocket协议原理 http协议 http协议是单工的, 只能由client发请求再由server返回请求结果, 在http协议中server是不能主动发请求到client的.
+ 单工, 半双工, 全双工区别 参考: http://blog.csdn.net/erwangshi/article/details/44940069
+ 大多数情况下http协议都是适用的, 但当遇到在线聊天, 股票行情这样需要实时获取取服务端信息的应用时, client需要频繁轮询server 过程如下:
+ client 建立连接 client 问server有没有新的消息, 并根据返回结果进行处理 client 关闭连接 client 建立连接 client 问server有没有新的消息, 并根据返回结果进行处理 client 关闭连接 &hellip;  为了拿到最新信息, client一直这样循环下去 server如果一直没有新的消息, client的大多请求都是无效的, 效率低下.
+为了提高效率需要有一种协议可以让server主动发消息给client. 这样就不需要client频繁轮询, 只要server有新消息就会主动推送给client.
+这种协议就是websocket协议.
+websocket协议 webSocket协议是基于TCP的一种网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。 在webscoket协议中, client利用http来建立tcp连接, 建立tcp连接之后, client与server就可以基于tcp连接来愉快的进行通信了.
+    </div>
+  </div>
+
+        </div>
+      
     </section>
     
 
