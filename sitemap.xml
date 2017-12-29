@@ -3,12 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jmaxu.github.io/post/first/</loc>
-    <lastmod>2017-12-28T20:05:37+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jmaxu.github.io/post/stomp-over-websocket%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0/</loc>
+    <loc>https://jmaxu.github.io/post/stompoverwebsocket/</loc>
   </url>
   
   <url>
@@ -18,13 +13,11 @@
   
   <url>
     <loc>https://jmaxu.github.io/</loc>
-    <lastmod>2017-12-28T20:05:37+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jmaxu.github.io/post/</loc>
-    <lastmod>2017-12-28T20:05:37+08:00</lastmod>
     <priority>0</priority>
   </url>
   

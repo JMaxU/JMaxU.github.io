@@ -6,26 +6,16 @@
     <description>Recent content on JMaxU博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 28 Dec 2017 20:05:37 +0800</lastBuildDate>
     
 	<atom:link href="https://jmaxu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>First</title>
-      <link>https://jmaxu.github.io/post/first/</link>
-      <pubDate>Thu, 28 Dec 2017 20:05:37 +0800</pubDate>
-      
-      <guid>https://jmaxu.github.io/post/first/</guid>
-      <description> Hello Hugo  jabc jdfklajkldf kjdflajdlf  jabcdefg </description>
-    </item>
-    
-    <item>
       <title></title>
-      <link>https://jmaxu.github.io/post/stomp-over-websocket%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0/</link>
+      <link>https://jmaxu.github.io/post/stompoverwebsocket/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jmaxu.github.io/post/stomp-over-websocket%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0/</guid>
+      <guid>https://jmaxu.github.io/post/stompoverwebsocket/</guid>
       <description>stomp over websocket协议原理与实现 标签（空格分隔）： 分享
 [toc]
 本文你将学习到  websocket协议原理. stomp协议原理. websocket协议的缺点, 为什么websocket协议需要stomp协议来补充. spring websocket架构与实现. spring websocket的性能优化. 如果使用java编写stomp over websocket协议的client.  stomp over websocket协议原理 http协议 http协议是单工的, 只能由client发请求再由server返回请求结果, 在http协议中server是不能主动发请求到client的.
