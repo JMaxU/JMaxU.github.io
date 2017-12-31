@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>stomp over websocket协议原理与实现 - Even - A super concise theme for Hugo</title>
+  <title>stomp over websocket协议原理与实现 - JMaxU&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -19,7 +19,7 @@
 <meta name="author" content="Wikipedia" />
   <meta name="description" content="本文你将学习到 websocket协议原理. stomp协议原理. websocket协议的缺点, 为什么websocket协议需要stomp协议来" />
 
-  <meta name="keywords" content="Hugo, theme, even" />
+  <meta name="keywords" content="JMaxU, architecture" />
 
 
 
@@ -29,7 +29,7 @@
 <meta name="generator" content="Hugo 0.30.2" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/stompoverwebsocket/" />
+<link rel="canonical" href="http://jmaxu.github.io/post/stompoverwebsocket/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -50,7 +50,7 @@
 <meta property="og:title" content="stomp over websocket协议原理与实现" />
 <meta property="og:description" content="本文你将学习到 websocket协议原理. stomp协议原理. websocket协议的缺点, 为什么websocket协议需要stomp协议来" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/stompoverwebsocket/" />
+<meta property="og:url" content="http://jmaxu.github.io/post/stompoverwebsocket/" />
 
 
 
@@ -78,7 +78,7 @@
 
 
 
-<meta itemprop="keywords" content="preview,中文,tag-1," />
+<meta itemprop="keywords" content="spring boot,websocket," />
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="stomp over websocket协议原理与实现"/>
 <meta name="twitter:description" content="本文你将学习到 websocket协议原理. stomp协议原理. websocket协议的缺点, 为什么websocket协议需要stomp协议来"/>
 
@@ -95,7 +95,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">Even</a>
+    <a href="/" class="logo">JMaxU&#39;s blog</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -106,32 +106,32 @@
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
     <a href="/">
-        <li class="mobile-menu-item">Home</li>
+        <li class="mobile-menu-item">首页</li>
       </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
+        <li class="mobile-menu-item">归档</li>
       </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
+        <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
+        <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
 </nav>
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">Even</a>
+  <a href="/" class="logo">JMaxU&#39;s blog</a>
 </div>
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
+        <a class="menu-item-link" href="/">首页</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
+        <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
+        <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/categories/">分类</a>
       </li>
   </ul>
 </nav>
@@ -149,10 +149,11 @@
         <span class="post-time"> 2017-08-30 </span>
         <div class="post-category">
             
-              <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
+              <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             
           </div>
-        
+        <span class="more-meta"> 约 11492 字 </span>
+        <span class="more-meta"> 预计阅读 23 分钟 </span>
         
       </div>
     </header>
@@ -992,11 +993,9 @@ public class StompClientDemo {
     <footer class="post-footer">
       <div class="post-tags">
           
-          <a href="/tags/preview/">preview</a>
+          <a href="/tags/spring-boot/">spring boot</a>
           
-          <a href="/tags/%E4%B8%AD%E6%96%87/">中文</a>
-          
-          <a href="/tags/tag-1/">tag-1</a>
+          <a href="/tags/websocket/">websocket</a>
           
         </div>
 
@@ -1024,20 +1023,8 @@ public class StompClientDemo {
 
     <footer id="footer" class="footer">
       <div class="social-links">
-      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
-      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
-      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
-      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
-      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
-      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
-      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
-      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
-      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
-      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
-      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
-  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="woshijingxu@gmail.com" class="iconfont icon-email" title="email"></a>
+  <a href="http://jmaxu.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -1058,7 +1045,7 @@ public class StompClientDemo {
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">olOwOlo</span>
+    <span class="author">JMaxU</span>
   </span>
 </div>
     </footer>
