@@ -29,14 +29,5 @@
       <description>本文你将学习到 websocket协议原理. stomp协议原理. websocket协议的缺点, 为什么websocket协议需要stomp协议来</description>
     </item>
     
-    <item>
-      <title>关于我</title>
-      <link>http://jmaxu.github.io/post/about_me/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://jmaxu.github.io/post/about_me/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

@@ -65,12 +65,6 @@
   </url>
   
   <url>
-    <loc>http://jmaxu.github.io/post/about_me/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://jmaxu.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</loc>
     <lastmod>2017-12-29T20:45:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
