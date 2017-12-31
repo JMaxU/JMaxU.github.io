@@ -113,6 +113,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
+      </a><a href="/post/about_me/">
+        <li class="mobile-menu-item">关于我</li>
       </a>
   </ul>
 </nav>
@@ -132,6 +134,8 @@
         <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/about_me/">关于我</a>
       </li>
   </ul>
 </nav>
@@ -1002,18 +1006,36 @@ public class StompClientDemo {
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B9%8B%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/">
+          <a class="prev" href="/post/blockchain-smartcontract/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">区块链之智能合约</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
+          <a class="next" href="/post/about_me/">
+            <span class="next-text nav-default">关于我</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
       </nav>
     </footer>
   </article>
         </div>
         
-  
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jmaxu';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
   
 
