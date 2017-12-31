@@ -74,7 +74,7 @@
 
 <meta itemprop="datePublished" content="2017-12-29T20:45:37&#43;08:00" />
 <meta itemprop="dateModified" content="2017-12-29T20:45:37&#43;08:00" />
-<meta itemprop="wordCount" content="11581">
+<meta itemprop="wordCount" content="12089">
 
 
 
@@ -152,8 +152,8 @@
               <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             
           </div>
-        <span class="more-meta"> 约 11581 字 </span>
-        <span class="more-meta"> 预计阅读 24 分钟 </span>
+        <span class="more-meta"> 约 12089 字 </span>
+        <span class="more-meta"> 预计阅读 25 分钟 </span>
         
       </div>
     </header>
@@ -187,10 +187,7 @@
 <ul>
 <li><a href="#一个简单的交易合约">一个简单的交易合约</a></li>
 <li><a href="#一个多签交易合约">一个多签交易合约</a></li>
-<li><a href="#一个简单的ico交易合约">一个简单的ICO交易合约</a>
-<ul>
-<li><a href="#说说迅雷链克区块链">说说迅雷链克区块链</a></li>
-</ul></li>
+<li><a href="#一个简单的ico交易合约">一个简单的ICO交易合约</a></li>
 </ul></li>
 <li><a href="#实际操作一下">实际操作一下</a>
 <ul>
@@ -272,6 +269,10 @@
 交易有输出, 有输出. 在输入与输出中都含有一段脚本, 这两段存在于输入与输出中的脚本就是比特币中的智能合约.</p>
 
 <p>接下来, 我们通过一个简单交易, 一个多签交易以及一个自定义的交易来了解一下比特币中的智能合约.</p>
+
+<blockquote>
+<p>以下简单交易与多签交易中的例子, 取自<code>mastering bitcoin</code>.</p>
+</blockquote>
 
 <h3 id="一个简单交易">一个简单交易</h3>
 
@@ -411,15 +412,15 @@
 <p>深入剖析之前, 需要先复习一下非对称加密:</p>
 
 <ul>
-<li>有一对key, 一个为公钥, 一个为私钥.</li>
-<li>公钥是公开的人人都能知道, 私钥是不公开.</li>
+<li>有一对密钥, 一个为公钥, 一个为私钥.</li>
+<li>公钥是公开的, 人人都能知道, 私钥是不公开.</li>
 <li>公钥进行加密, 私钥进行解密.</li>
 <li>私钥进行签名, 公钥进行验签.
 比特币中并未用到非对称加密中的加密, 只用于了签名.</li>
 </ul>
 </blockquote>
 
-<p>在这个简单交易里, 小帅用自己的解锁脚本去解一个数额为0.1比特币的输出, 证明0.1比特币属于自己.
+<p>在这个简单交易里, 小帅用自己的解锁脚本去解一个数额为0.1比特币的输出, 证明这0.1比特币属于自己.
 交易输入如下:</p>
 
 <pre><code>    &quot;vin&quot;: [
@@ -472,22 +473,22 @@
 
 <ul>
 <li>脚本的前两个元素<code>&lt;sig&gt;&lt;PubK&gt;</code>为数据, 推进栈.</li>
-<li>脚本的第三个元素<code>DUP</code>为指令, <code>DUP</code>指令会把栈顶元素<code>&lt;PubK&gt;</code>复制一份推进栈.</li>
-<li>脚本的第四个元素<code>HASH160</code>为指令, <code>HASH160</code>指令会把栈顶元素<code>&lt;PubK&gt;</code>进行hash160操作再放回栈.</li>
-<li>脚本的第五个元素<code>&lt;PubKHash&gt;</code>为数据, 推进栈.</li>
-<li>脚本的第六个元素<code>EQUALVERIFY</code>为指令, 会pop出两个元素进行对比. 如果相待继续执行, 如果不等脚本退出, 执行失败.</li>
-<li>现在栈里剩下<code>&lt;sig&gt;&lt;PubK&gt;</code>两个元素, 脚本的最后一个元素<code>CHECKSIG</code>为指令, 就是对最后剩下的这两个元素进行判断, 用第一个元素<code>&lt;PubK&gt;</code>去验证<code>&lt;sig&gt;</code>是否正确.</li>
-<li>如果可以验证成功并且这个交易已部署到区块链里中, 则小帅就拥有了这0.0845个比特币.</li>
+<li>脚本的第三个元素<code>DUP</code>为指令, <code>DUP</code>指令会把栈顶元素<code>&lt;PubK&gt;</code>复制一份并压进栈.</li>
+<li>脚本的第四个元素<code>HASH160</code>为指令, <code>HASH160</code>指令会把栈顶元素<code>&lt;PubK&gt;</code>进行hash160操作再压进栈.</li>
+<li>脚本的第五个元素<code>&lt;PubKHash&gt;</code>为数据, 压进栈.</li>
+<li>脚本的第六个元素<code>EQUALVERIFY</code>为指令, 会弹出两个元素进行对比. 如果相待继续执行, 如果不等脚本退出, 执行失败.</li>
+<li>现在栈里剩下<code>&lt;sig&gt;&lt;PubK&gt;</code>两个元素, 脚本的最后一个元素<code>CHECKSIG</code>为指令, 就是对最后剩下的这两个元素进行判断, 用第一个元素<code>&lt;PubK&gt;</code>去验证<code>&lt;sig&gt;</code>是否正确, 也就是用公钥去验证签名.</li>
+<li>如果可以验证成功, 则证明小帅拥有这个输出里的这0.1个比特币.</li>
 </ul>
 
-<p>这种类型的脚本或是说<code>智能合约</code>在现在的比特币里最为常见.
+<p>这种类型的脚本或是说<code>智能合约</code>在比特币里最为常见.
 我们把这种交易命名<code>Pay-to-Public-Key-Hash (P2PKH)</code>, 中文译为<code>支付给公钥</code>.</p>
 
 <p>除了这种<code>合约</code>, 还有一种复杂点的<code>合约</code>也比较常见, 叫<code>Multisignature</code>, 多签交易.</p>
 
 <h3 id="一个多签交易">一个多签交易</h3>
 
-<p>了解了简单交易, 那么了解多签交易就简单了.
+<p>了解了简单交易, 了解多签交易就简单了.
 多签交易可以理解为把比特币支付给了一堆公钥地址, 需要这堆公钥地址中的某几个或全部提供签名才能解锁.</p>
 
 <p>多签锁定脚本的一般形式如下:</p>
@@ -513,7 +514,7 @@
 </code></pre>
 
 <p>这个脚本把除了最后个元素<code>CHECKMULTISIG</code>为指令外其他都为数据.
-<code>CHECKMULTISIG</code>指令很强大, 它会判断解锁脚本中是否提供了锁定脚本里3个公钥中的2个公钥所对应的正确私钥.</p>
+<code>CHECKMULTISIG</code>指令很强大, 它会判断解锁脚本中是否提供了锁定脚本里3个公钥中的2个公钥所对应的正确签名.</p>
 
 <p>除了简单交易-支付给公钥与多签交易后, 其实还有一个目前广泛使用的更加强大的<code>Pay-to-Script-Hash (P2SH)</code>, 支付给脚本.</p>
 
@@ -526,11 +527,11 @@
 
 <p>这时<code>Pay-to-Script-Hash (P2SH)</code>支付给脚本方式的交易诞生了, 解决了上述的问题. 这个很牛逼.</p>
 
-<p><code>P2SH</code>之前的脚本:
+<p><code>P2SH</code>之前的多签脚本:
 锁定脚本:<code>2 PubKey1 PubKey2 PubKey3 PubKey4 PubKey5 5 CHECKMULTISIG</code>
 解锁脚本:<code>Sig1 Sig2</code></p>
 
-<p><code>P2SH</code>之后的脚本:
+<p><code>P2SH</code>之后的多签脚本:
 赎回脚本:<code>2 PubKey1 PubKey2 PubKey3 PubKey4 PubKey5 5 CHECKMULTISIG</code>
 锁定脚本:<code>HASH160 &lt;赎回脚本的hash值&gt; EQUAL</code>
 解锁脚本:<code>Sig1 Sig2 &lt;赎回脚本&gt;</code></p>
@@ -551,11 +552,11 @@
 <li><code>HASH160</code>为指令. 从栈顶取出赎回脚本计算hash值, 将hash结果推进栈.</li>
 <li><code>&lt;赎回脚本的hash值&gt;</code>为数据, 推进栈.</li>
 <li>这时栈前两个元素都是赎回脚本的hash值.指令<code>EQUAL</code>取出这两个hash值, 并对比这两个值是否相等.</li>
-<li>如果相等, 则执行赎回脚本. 这时的逻辑和多签脚本中所说的逻辑一致.</li>
+<li>如果相等, 则执行赎回脚本. 这时执行的逻辑和多签脚本中所说的逻辑一致.</li>
 </ul>
 
 <p>解锁脚本与锁定脚本可以按照自己的需求来编写, 只要符合比特币的规则.
-接下来看一个自定义的脚本, 更复杂的一个例子.</p>
+接下来看一个自定义的脚本或合约的例子.</p>
 
 <h3 id="一个自定义交易">一个自定义交易</h3>
 
@@ -563,7 +564,7 @@
 
 <ul>
 <li>只要有小帅, 小强, 小壮, 3个人中的2个人的签名, 可以解锁锁定脚本.</li>
-<li>或者有小景的签名, 可以解锁脚本.</li>
+<li>或者只有小景的签名, 可以解锁脚本.</li>
 </ul>
 
 <p>那么这个合约, 可以这样写:</p>
@@ -575,7 +576,7 @@ ELSE
 ENDIF
 </code></pre>
 
-<p>如果小帅, 小强, 小壮想解决脚本, 则解决脚本如下:</p>
+<p>如果小帅, 小强, 小壮想解锁脚本, 则解锁脚本如下:</p>
 
 <pre><code>&lt;小帅签名&gt; &lt;小强签名&gt; true
 </code></pre>
@@ -585,21 +586,23 @@ ENDIF
 <pre><code>&lt;小景签名&gt; &lt;小景公钥&gt; false
 </code></pre>
 
-<p>这两个解锁脚本后面的<code>true</code>与<code>false</code>是为了控制锁定脚本中的条件语句的.</p>
+<p>这两个解锁脚本后面的<code>true</code>与<code>false</code>是为了控制锁定脚本中的条件语句的.
+<code>IF</code>指令会取出栈顶元素, 如果为<code>true</code>, 则执行IF分支 如果为<code>false</code>则执行ELSE分支.</p>
 
 <h2 id="以太坊中的智能合约">以太坊中的智能合约</h2>
 
-<p>上一部分我们知道, 比特币中的智能合约存在于交易的输入输出中, 交易输入中的解锁脚本去解交易输出中的锁定脚本, 来完成合约执行.
-要理解以太坊的智能合约, 需要暂且把比特币的智能合约忘掉, 这样可能会更容易理解. 当初我学完比特币后, 开始学的以太坊, 总拿比特币中的知识去往以太坊来靠, 结果各种晕. 其实以太坊相对比特币更容易理解.</p>
+<p>上一部分我们知道, 比特币中的智能合约存在于交易的输入输出中, 交易输入中的解锁脚本去解交易输出中的锁定脚本, 来完成合约执行.</p>
 
-<p>要理解以太坊中的智能合约, 首先需要理解这么几个以太坊中的概念:</p>
+<p>要理解以太坊的智能合约, 需要暂且把比特币的智能合约忘掉, 这样可能会更容易理解. 当初我学完比特币后, 开始学的以太坊, 总拿比特币中的知识去往以太坊来靠, 结果各种晕. 其实以太坊相对比特币更容易理解.</p>
+
+<p>要理解以太坊中的智能合约, 首先需要理解这么几个以太坊中的重要概念:</p>
 
 <h3 id="基础概念">基础概念</h3>
 
 <ul>
 <li><strong>账户</strong>
-在比特币的实现本身并没有账户这个概念. 在比特币中要获得某人账户的余额, 需要把这个人能解锁的所有锁定脚本中的余额全加起来. 比特币钱包中余额就把比特币区块链中所有交易遍历一遍找到钱包拥有者所能解锁的输出脚本, 并将其中的金额加起来实现的. 当然, 钱包为什么能很快展现出余额, 是因为使用了缓存.
-而在以太坊的实现中是直接就有账户这个抽象, 发起交易就是从一个账户转钱给别一个账户, 一个账户的余额减少, 另一个账户的余额增加, 和咱们熟悉的银行转账一样.
+比特币的实现并没有账户这个抽象. 在比特币中要获得某人账户的余额, 需要把这个人能解锁的所有锁定脚本中的余额全加起来. 比特币钱包中余额就把比特币区块链中所有交易遍历一遍找到钱包拥有者所能解锁的输出脚本, 并将其中的金额加起来实现的. 当然, 钱包为什么能很快展现出余额, 是因为使用了缓存.
+而在以太坊的实现中是直接就有账户这个抽象的, 发起交易就是从一个账户转钱给别一个账户, 一个账户的余额减少, 另一个账户的余额增加, 和咱们熟悉的银行转账一样.
 这种账户在以太坊中称为外部账户, 简称账户. 以太坊账户的余额是存在于以太坊区块链中的, 直接就可以获得, 不需要像比特币那么费劲遍历输出脚本.
 账户有地址, 地址就是公私钥中的公钥, 这个与比特币类似.</li>
 </ul>
@@ -616,10 +619,10 @@ ENDIF
 以太坊中交易就是指从账户(简称账户)发起的由账户的私钥进行签名的一个消息体.
 以太坊中的交易可以从账户发到另一个账户, 也可以由账户发到一个合约.
 从一个账户到另一个账户的交易类似比特币中的简单交易, 将一些以太币转到另一个账户.
-从一个账户到一个合约的交易, 把账户所拥有的以太币转到合约的余额里并触发合约的执行.</li>
+从一个账户到一个合约的交易, 把账户所拥有的以太币转到合约的余额里并触发合约的执行. 这个有点像比特币中的支付给脚本(P2SH);</li>
 </ul>
 
-<p>以太坊中的消息是指由一个合约发起的到另一个合约的消息体, 把合约中的以太币转到另一个合约的余额里并触发另一个合约的执行.</p>
+<p>以太坊中的消息是指由一个合约发起的到另一个合约的消息体, 把合约中的以太币转到另一个合约的余额里并触发另一个合约的执行. 可以理解为一个合约去调用另一个合约.</p>
 
 <p>交易与消息有如下区别:</p>
 
@@ -631,9 +634,12 @@ ENDIF
 
 <p>了解了账户, 合约, 交易, 消息的概念后, 那么他们之间是什么关系呢? 在以太坊中他们是如何串起来的?</p>
 
-<p>账户发起交易, 交易触发合约, 合约发送消息到另外的合约, 可以理解为合约调用其他合约, 伴随着交易与合约的执行, 账户的余额, 合约的余额, 合约的存储都会发生变化.
-可以这么理解, 整个区块链就是个数据库, 记录了账户的余额, 合约的余额, 合约的存储, 而想要改变这个数据库中的值必须发起交易, 用交易以及交易所触发的合约来改变这个数据库中的值.
-交易的发起只能来自账户, 所以账户是整个区块链状态改变的源动力来源.</p>
+<p>整个流程是这样的, 账户发起交易, 交易触发合约, 合约发送消息到其他合约, 也就是合约调用其他合约, 伴随着交易与合约的执行, 账户的余额, 合约的余额, 合约的存储都可能会发生变化.</p>
+
+<p>可以这么理解, 整个区块链就是个数据库, 记录了账户的余额, 合约的余额, 合约的存储, 而想要改变这个数据库中的值必须发起交易, 用交易以及交易所触发的合约来改变这个数据库中的值.
+交易的发起只能来自账户, 所以账户是整个区块链状态改变的源动力.</p>
+
+<p>为了加深理解, 断续阐述一下交易与合约的关系.</p>
 
 <h4 id="交易与合约关系">交易与合约关系</h4>
 
@@ -641,10 +647,10 @@ ENDIF
 
 <ul>
 <li>交易的接收者. 可以是合约也可以是账户.</li>
-<li>签名. 用户账户私钥对交易进行签名.</li>
+<li>签名. 账户私钥对交易进行签名.</li>
 <li>转账的金额.</li>
-<li>一个可选的<code>data</code>字段. 详情见交易与合约的关系.</li>
-<li>交易费相关的燃气值<code>STARTGAS</code>与燃气单价<code>GASPRICE</code>.</li>
+<li>一个可选的<code>data</code>字段. 详情见之后交易与合约关系的讨论.</li>
+<li>交易费. 燃气值<code>GAS</code>与燃气单价<code>GASPRICE</code>, 这两个相乘就是交易费. 详情见:<a href="https://media.consensys.net/ethereum-gas-fuel-and-fees-3333e17fe1dc">https://media.consensys.net/ethereum-gas-fuel-and-fees-3333e17fe1dc</a>, 这里不赘述了.</li>
 </ul>
 
 <p>如下, 调用以太坊接口, 获得某个交易的内容:</p>
@@ -671,11 +677,11 @@ console.log(transaction);
 <p>以太坊中交易与合约关系如下:</p>
 
 <ul>
-<li>合约的创建是来交易创建的.
-发起一个接收者为空的交易, data中写入合约代码, 就会创建一个合约.<br /></li>
+<li>合约的创建是由交易创建的.
+发起一个接收者为空的交易, data中写入合约代码, 就会创建一个合约.</li>
 </ul>
 
-<p>如下, 创建一个合约:</p>
+<p>如下, 调用以太坊接口, 创建一个合约:</p>
 
 <pre><code>// compiled solidity source code using https://chriseth.github.io/cpp-ethereum/
 var code = &quot;603d80600c6000396000f3007c01000000000000000000000000000000000000000000000000000000006000350463c6888fa18114602d57005b6007600435028060005260206000f3&quot;;
@@ -687,30 +693,32 @@ web3.eth.sendTransaction({data: code}, function(err, transactionHash) {
 </code></pre>
 
 <ul>
-<li>合约的调用是由交易来触发调用的.
-发起一个接收者为合约地址的交易, data写入调用合约的代码, 则触发合约相关方法的执行.</li>
-<li>在比特币中合约存在于交易的输入输出中, 而在以太坊中交易与合约是分开存储的.</li>
+<li>合约的调用是可以由交易来触发调用的.
+发起一个接收者为合约地址的交易, data写入调用合约的代码, 则触发合约相关方法的执行.这种方式一般用于对合约的状态修改(余额, 存储).</li>
+<li>合约的调用可以直接调用, 不用发起交易.
+这种一般用于查询合约状态(余额, 存储).</li>
 </ul>
+
+<p>接下来与比特币中的智能合约作个对比.</p>
 
 <h4 id="与比特币智能合约区别">与比特币智能合约区别</h4>
 
-<p>以太坊中的智能合约比比特币中的智能合约强大.</p>
+<p>以太坊中的智能合约比比特币中的智能合约更强大, 更灵活.</p>
 
 <ul>
 <li>以太坊中的智能合约与交易是分开的单独存储.
-比特币中的智能合约存在于交易的输入与输出中, 而以太</li>
-<li>以太坊的智能合约对开发人员更友好, 更完备.
+比特币中的智能合约存在于交易的输入与输出中, 而以太坊中的合约与交易是分开存储的.</li>
+<li>以太坊的智能合约对开发人员更友好.
 可以用都比较熟悉的类似javascript语言的代码来编写合约. 合约进行编译后运行在以太坊虚拟机evm上. 这里的虚拟机evm可以类比为java虚拟机jvm.</li>
 <li>以太坊的合约语言图灵完备, 而比特币是图灵不完备的.
-比如比特币为了防止在支付时发生阻塞, 不支持循环语句.
-以太坊支持, 以太坊根据代码执行所占资源收取交易费来阻止恶意循环.</li>
+比如比特币为了防止在支付时发生阻塞, 不支持循环语句. 而以太坊支持, 以太坊根据代码执行所占资源收取交易费来阻止恶意循环.</li>
 <li>以太坊合约有状态, 比特币合约没有.
 以太坊中的合约其实全称为合约账户, 有自己的状态. 比如合约的余额, 合约的存储.
 而比特币的合约是没有状态的. 这大大限制了合约的作用.</li>
 <li>以太坊合约可以获取区块中的数据, 比特币不能.
-比如以太坊中的合约可以拿到上一个区块的hash值等.</li>
+比如以太坊中的合约可以拿到上一个区块的hash值等一些区块的信息而比特币拿不到区块的任何信息.</li>
 <li>由于以太坊智能合约的强大, 导致合约可以写的很复杂, 而复杂必然会导致合约更容易产生bug.
-像比特币正因为合约语法简单, 限制多, 所以非常健壮, 诞生之间未出现严重bug.</li>
+像比特币正因为合约语法简单, 限制多, 所以非常健壮, 诞生以来未出现严重bug.</li>
 </ul>
 
 <p>以太坊做了整个区块链的基础设施, 而把合约的编写抛给了用户, 让用户可以根据自己的业务需求只编写合约, 而不用费劲再自己搭一个区块链.
@@ -720,8 +728,7 @@ web3.eth.sendTransaction({data: code}, function(err, transactionHash) {
 
 <h4 id="一个简单的交易合约">一个简单的交易合约</h4>
 
-<p>在以太坊中, 像小帅支付给小强5个以太币这样的简单交易是不需要写智能合约的.
-以太坊本身就支持, 调用以太坊接口:</p>
+<p>在以太坊中, 像小帅支付给小强5个以太币这样的简单交易是不需要写智能合约的. 直接调用以太坊接口就可以:</p>
 
 <pre><code>web3.eth.sendTransaction(transactionObject [, callback])
 /*
@@ -730,7 +737,9 @@ transactionObject中包含了小帅的地址, 小强的地址, 以太转多少�
 </code></pre>
 
 <p>底层也是通过用私钥签名, 用公钥进行验签来实现的.
-比如小帅发起向小强支付5个以太币的交易, 该交易会把小帅的私钥签名. 以太坊节点收到这个交易后会用小帅的公钥地址去验签此交易的签名.</p>
+比如小帅发起向小强支付5个以太币的交易, 该交易带有小帅的私钥签名. 以太坊节点收到这个交易后会用小帅的公钥去验证交易的签名.</p>
+
+<p>接下来看一下以太坊中多签交易的实现.</p>
 
 <h4 id="一个多签交易合约">一个多签交易合约</h4>
 
@@ -751,7 +760,7 @@ contract SimpleMultiSig {
   function SimpleMultiSig(uint threshold_, address[] owners_) {
     require(owners_.length &lt;= 10 &amp;&amp; threshold_ &lt;= owners_.length &amp;&amp; threshold_ != 0);
 
-    address lastAdd = address(0); 
+    address lastAdd = address(0);
     for (uint i=0; i&lt;owners_.length; i++) {
       require(owners_[i] &gt; lastAdd);
       isOwner[owners_[i]] = true;
@@ -786,32 +795,30 @@ contract SimpleMultiSig {
 }
 </code></pre>
 
-<blockquote>
-<p>以太坊签名规范:<a href="https://github.com/ethereum/EIPs/issues/191">https://github.com/ethereum/EIPs/issues/191</a></p>
-</blockquote>
+<p>以上是一个简单版的多签合约, 以太坊官方的多签合约比这复杂很多, 功能也相对更加强大.</p>
 
 <p>官方多签合约:<code>https://github.com/ethereum/dapp-bin/blob/master/wallet/wallet.sol</code>
 官方多签规范协议:<code>https://github.com/ethereum/EIPs/issues/763</code>
-官方多签有更多的功能, 比如限制每天的提取限额, 大额需要多签, 小额免多签.
+官方多签有更多的功能, 比如限制每天的提取限额, 大额需要多签, 小额免多签, 替换owner等.
 从官方多签合约可以看出以太坊合约的灵活与强大.</p>
 
 <h4 id="一个简单的ico交易合约">一个简单的ICO交易合约</h4>
 
-<p>ICO就是首次发行代币, 背后的实现就是数字代币, 以下是一个以太坊中简单的数据代币合约的实现:</p>
+<p>ICO就是首次发行代币, 背后的实现就是数字代币合约, 以下是一个以太坊中简单的数字代币合约的实现:</p>
 
 <pre><code>pragma solidity ^0.4.0;
 
 contract Coin {
     //谁可以发行币
     address public minter;
-    //每个账户的代币余额
+    //每个账户的代币余额, 类似php中的二维数组, java中的map.
     mapping (address =&gt; uint) public balances;
 
     //转账事件, client可以订阅收到这个事件
     event Sent(address from, address to, uint amount);
 
-    //合约构造方法, 创建合约时执行, 只执行一次. 
-    //合约一旦创建, minter不能再修改. 因为没有提供修改miner的方法.
+    //合约构造方法, 创建合约时执行, 只执行一次.
+    //合约一旦创建, minter值不能再修改. 因为此合约没有提供修改miner的方法.
     function Coin() public {
         minter = msg.sender;
     }
@@ -832,16 +839,15 @@ contract Coin {
 }
 </code></pre>
 
-<p>可以看到实现一个数字代码, 特别简单.</p>
+<p>可以看到实现一个数字代币, 特别简单.</p>
 
-<p>所以搞一个ICO骗钱在技术没有成本, 主要地要把界面, 宣传搞好. 像之前这个来钱太他妈容易了. 无本万利.</p>
+<p>所以搞一个ICO骗钱在技术没有成本, 主要地要把界面, 宣传搞好. 像之前这个来钱太他妈容易了. 无本万利啊.</p>
 
-<h5 id="说说迅雷链克区块链">说说迅雷链克区块链</h5>
+<p><strong>说说迅雷链克区块链</strong></p>
 
 <p>迅雷最近在区块链上特别火, 被誉为中国区块链领头羊, 迅雷CEO陈磊说是中国区块链之父, 牛逼吹的特别大.
-而迅雷其实就是用以太坊建立了一个私有网络的区块链并在这个私有网络区块链上写了个数字代币合约, 可能比上述例子复杂点, 但原理差不多. 迅雷更低级的是区块链的打包全是由迅雷服务器来做的, 美其名曰具有中国特色的区块链.</p>
-
-<p>在以太币公有网络上的其他代币起码还是去中心不可篡改的特性, 但迅雷完全就把区块链当成一个中心数据库用, 完全由迅雷控制, 简直就是迅雷的印钞机.</p>
+而迅雷其实就是用以太坊建立了一个私有网络的区块链并在这个私有网络区块链上写了个数字代币合约, 可能比上述例子复杂点, 但原理差不多. 迅雷更低级的是区块链的打包全是由迅雷服务器来做的, 直接中心化, 完全失去了区块链最重要的去中心和不可篡改特性, 美其名曰具有中国特色的区块链,
+迅雷完全就把区块链当成一个中心数据库用, 完全由迅雷控制, 简直就是迅雷的印钞机. 更滑稽是那些追随都还把链克当成个宝.</p>
 
 <h3 id="实际操作一下">实际操作一下</h3>
 
@@ -850,7 +856,7 @@ contract Coin {
 <blockquote>
 <p>私有网络的区块链与联盟链是不同的概念.
 私有网络区块链是说建立一条与以太坊公有链不同的另一个公有链.
-而私有链是指只有特定的一些人才可以参与的区链链.
+而联盟链是指只有特定的一些人才可以参与的区链链.
 如果把私有网络的区块链建立在一个局域网内, 只有局域网内的人才能参与, 那么这样的私有网络区块链也就是联盟链了.</p>
 </blockquote>
 
@@ -904,11 +910,10 @@ ls -al  build/bin/geth
 
 <ul>
 <li><code>difficulty</code>为初始打包也就是挖矿的难度, 因为是私有网络初始设低一点.</li>
-<li><code>chainId</code>链的id,不同链链id不一样, 写一个自己的和公有的区分开.</li>
+<li><code>chainId</code>链的id,不同链, 链id不一样, 写一个自己的和公有的区分开.</li>
 </ul>
 
-<p>运行以下命令启动两个节点:
-初始化</p>
+<p>运行以下命令初始化两个节点:</p>
 
 <pre><code>geth --datadir ./node1/ init ./genesis.json
 geth --datadir ./node2/ init ./genesis.json
@@ -938,7 +943,7 @@ geth --networkid 11988 --datadir ./node2/ --syncmode &quot;full&quot; --rpc --rp
 <ul>
 <li><code>networdid</code>也chainId相同.</li>
 <li><code>port</code>指定节点间互相通过的端口.</li>
-<li><code>rpcport</code>指定节点对外显露的接口所用的端口.</li>
+<li><code>rpcport</code>指定节点对外暴露的接口所用的端口.</li>
 </ul>
 
 <h5 id="创建账户">创建账户</h5>
@@ -954,7 +959,7 @@ web3.eth.accounts
 eth.getBalance(web3.eth.accounts[0])
 </code></pre>
 
-<p>这样就创建了一个账户并且账户的余额为0.</p>
+<p>这样就创建了一个账户, 刚创建的账户的余额为0.</p>
 
 <h5 id="挖点矿">挖点矿</h5>
 
@@ -984,7 +989,8 @@ INFO [12-28|15:53:51] 🔗 block reached canonical chain          number=8  hash
 INFO [12-28|15:53:51] 🔨 mined potential block                  number=13 hash=cf04e9…baac3b
 </code></pre>
 
-<p>这时再查看余额</p>
+<p>由于我们在genesis.json配置初始挖矿难度值很低, 所以我们几乎挖矿速度很快.
+这时再查看余额</p>
 
 <pre><code>eth.getBalance(web3.eth.accounts[0])
 45000000000000000000
@@ -1003,6 +1009,7 @@ INFO [12-28|15:53:51] 🔨 mined potential block                  number=13 hash
 
 <ol>
 <li>安装web3环境
+web3相当于一个面对本地区块链节点的javascript客户端.
 <code>
 npm install web3@0.20.1 solc
 </code></li>
@@ -1025,7 +1032,9 @@ function hasProof(bytes32 proof) returns (bool) {
     return proofs[proof];
 }
 }
-</code></pre></li>
+</code></pre>
+
+<p>数字证明很简单, 我们只要把需要证明的数据的hash值记进区块链中, 利用hash的碰撞阻力特性, 证明某段数据的存在.</p></li>
 
 <li><p>部署合约
 node进入</p>
@@ -1162,7 +1171,7 @@ var proof = proofContract.new(proofHash, {from: eth.accounts[0], data: proofComp
   
   <p class="copyright-item">
     <span class="item-title">许可协议</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank">CC BY-NC-ND 4.0</a></span>
   </p>
 </div>
 
@@ -1204,7 +1213,7 @@ var proof = proofContract.new(proofHash, {from: eth.accounts[0], data: proofComp
 
     <footer id="footer" class="footer">
       <div class="social-links">
-      <a href="woshijingxu@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="mailto:woshijingxu@gmail.com" class="iconfont icon-email" title="email"></a>
   <a href="http://jmaxu.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
