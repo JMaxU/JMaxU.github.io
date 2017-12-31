@@ -19,7 +19,7 @@
 <meta name="author" content="景旭" />
   <meta name="description" content="本文你将了解到 比特币中智能合约的原理. 以太坊中智能合约的原理. 如写一个数字代币(ICO). 迅雷的链克区块链是怎么做的. 如何搭建一个私有网络的" />
 
-  <meta name="keywords" content="JMaxU, architecture" />
+  <meta name="keywords" content="JMaxU, architecture, 景旭" />
 
 
 
@@ -1007,37 +1007,38 @@ INFO [12-28|15:53:51] 🔨 mined potential block                  number=13 hash
 
 <h4 id="编写一个数字认证智能合约并部署到区块链">编写一个数字认证智能合约并部署到区块链</h4>
 
-<ol>
-<li>安装web3环境
-web3相当于一个面对本地区块链节点的javascript客户端.
-<code>
-npm install web3@0.20.1 solc
-</code></li>
+<p><strong>安装web3环境</strong></p>
 
-<li><p>智能合约如下:</p>
+<p>web3相当于一个面对本地区块链节点的javascript客户端.</p>
+
+<pre><code>npm install web3@0.20.1 solc
+</code></pre>
+
+<p>智能合约如下:</p>
 
 <pre><code>pragma solidity ^0.4.0;
 // 数字认证 存在证明
 contract ProofOfExistence {
 
-mapping (bytes32 =&gt; bool) proofs;
+    mapping (bytes32 =&gt; bool) proofs;
 
-// 存储证明到合约中
-function storeProof(bytes32 proof) {
-    proofs[proof] = true;
-}
+    // 存储证明到合约中
+    function storeProof(bytes32 proof) {
+        proofs[proof] = true;
+    }
 
-// 检查证明是否存在
-function hasProof(bytes32 proof) returns (bool) {
-    return proofs[proof];
-}
+    // 检查证明是否存在
+    function hasProof(bytes32 proof) returns (bool) {
+        return proofs[proof];
+    }
 }
 </code></pre>
 
-<p>数字证明很简单, 我们只要把需要证明的数据的hash值记进区块链中, 利用hash的碰撞阻力特性, 证明某段数据的存在.</p></li>
+<p>数字证明很简单, 我们只要把需要证明的数据的hash值记进区块链中, 利用hash的碰撞阻力特性, 证明某段数据的存在.</p>
 
-<li><p>部署合约
-node进入</p>
+<p><strong>部署合约</strong></p>
+
+<p>node进入</p>
 
 <pre><code>Web3 = require('web3')
 //9102为启动节点时设置的接口所用的端口
@@ -1068,9 +1069,9 @@ byteCode = compiledCode.contracts[':ProofOfExistence'].bytecode
 deployedContract = VotingContract.new({data: '0x' + byteCode, from: web3.eth.accounts[0], gas: 5000000})
 //查看合约地址, 会发现合约地址为空, 这里因为合约尚未打包到区块里, 这里重启开启挖矿来打包区块. 再次查看就有地址了
 deployedContract.address
-</code></pre></li>
+</code></pre>
 
-<li><p>调用合约</p>
+<p><strong>调用合约</strong></p>
 
 <pre><code>//拿到合约实例
 contractInstance = VotingContract.at(deployedContract.address)
@@ -1082,42 +1083,41 @@ web3.eth.defaultAccount = web3.eth.accounts[0]
 web3.eth.getTransaction('交易地址')
 //返回如下结果
 { blockHash: '0x0000000000000000000000000000000000000000000000000000000000000000',
-blockNumber: null,
-from: '0xb19c93e4ed8553f0c8bbef8a59deba54215695bb',
-gas: 90000,
-gasPrice: BigNumber { s: 1, e: 10, c: [ 18000000000 ] },
-hash: '0xcafc78b00868c7bd45ecbb7b9e8cf4fa4f68aa10246c76319757202af1633175',
-input: '0x8952877b27a2df9c083e05f415c1c1c1ce3059e749c7a4ff96d5b08b3000000000000000',
-nonce: 1,
-to: '0x1efe34a3fe3b46e59fed454e86dfead63efd243d',
-transactionIndex: 0,
-value: BigNumber { s: 1, e: 0, c: [ 0 ] },
-v: '0x5dcb',
-r: '0x3cf890381f951e1aeec61d61646be95926be8dd0436829674f3d60eb8fcf4ad5',
-s: '0x6070af4a62306071677db9aa0016ea4e9dc4d78a76a97a108203f47f232a8f87' }
+  blockNumber: null,
+  from: '0xb19c93e4ed8553f0c8bbef8a59deba54215695bb',
+  gas: 90000,
+  gasPrice: BigNumber { s: 1, e: 10, c: [ 18000000000 ] },
+  hash: '0xcafc78b00868c7bd45ecbb7b9e8cf4fa4f68aa10246c76319757202af1633175',
+  input: '0x8952877b27a2df9c083e05f415c1c1c1ce3059e749c7a4ff96d5b08b3000000000000000',
+  nonce: 1,
+  to: '0x1efe34a3fe3b46e59fed454e86dfead63efd243d',
+  transactionIndex: 0,
+  value: BigNumber { s: 1, e: 0, c: [ 0 ] },
+  v: '0x5dcb',
+  r: '0x3cf890381f951e1aeec61d61646be95926be8dd0436829674f3d60eb8fcf4ad5',
+  s: '0x6070af4a62306071677db9aa0016ea4e9dc4d78a76a97a108203f47f232a8f87' }
 //blockHash为0000...是因为尚未打包, 现在没有blockhash. 启动矿工再次打包, 后再执行, 结果如下
 { blockHash: '0xf770e050eb0edde3ac6a9501790ec66f4d239978c3374e98940e2bcd8c2d8a90',
-blockNumber: 36,
-from: '0xb19c93e4ed8553f0c8bbef8a59deba54215695bb',
-gas: 90000,
-gasPrice: BigNumber { s: 1, e: 10, c: [ 18000000000 ] },
-hash: '0xcafc78b00868c7bd45ecbb7b9e8cf4fa4f68aa10246c76319757202af1633175',
-input: '0x8952877b27a2df9c083e05f415c1c1c1ce3059e749c7a4ff96d5b08b3000000000000000',
-nonce: 1,
-to: '0x1efe34a3fe3b46e59fed454e86dfead63efd243d',
-transactionIndex: 0,
-value: BigNumber { s: 1, e: 0, c: [ 0 ] },
-v: '0x5dcb',
-r: '0x3cf890381f951e1aeec61d61646be95926be8dd0436829674f3d60eb8fcf4ad5',
-s: '0x6070af4a62306071677db9aa0016ea4e9dc4d78a76a97a108203f47f232a8f87' }
+  blockNumber: 36,
+  from: '0xb19c93e4ed8553f0c8bbef8a59deba54215695bb',
+  gas: 90000,
+  gasPrice: BigNumber { s: 1, e: 10, c: [ 18000000000 ] },
+  hash: '0xcafc78b00868c7bd45ecbb7b9e8cf4fa4f68aa10246c76319757202af1633175',
+  input: '0x8952877b27a2df9c083e05f415c1c1c1ce3059e749c7a4ff96d5b08b3000000000000000',
+  nonce: 1,
+  to: '0x1efe34a3fe3b46e59fed454e86dfead63efd243d',
+  transactionIndex: 0,
+  value: BigNumber { s: 1, e: 0, c: [ 0 ] },
+  v: '0x5dcb',
+  r: '0x3cf890381f951e1aeec61d61646be95926be8dd0436829674f3d60eb8fcf4ad5',
+  s: '0x6070af4a62306071677db9aa0016ea4e9dc4d78a76a97a108203f47f232a8f87' }
 //可以看到blockHash有值.
 //咱们再次调用另外的hasProof方法看看, 如下
 contractInstance.hasProof(0x27a2df9c083e06109dfeb9633c711b796e0bd85ac049f5f55646d31def21b833)
 //发现又返回了个交易地址, 我们的hashProof只是个查询方法, 没必须发起交易, 用如下方式来查询
 contractInstance.hasProof.call(0x27a2df9c083e06109dfeb9633c711b796e0bd85ac049f5f55646d31def21b833).toLocaleString()
 //返回true, 证明区块链里有这个key, 也就进行了数据证明
-</code></pre></li>
-</ol>
+</code></pre>
 
 <p><strong>在以前, 有很多同学直接用geth部署, 目前由于web3.eth.compile.solidity已在1.6版本去掉, 所以以下方式已废弃.</strong></p>
 
