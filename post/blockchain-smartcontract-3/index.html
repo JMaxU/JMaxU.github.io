@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>以太坊中的智能合约 - JMaxU&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="景旭" />
+  <meta name="description" content="比特币中的智能合约存在于交易的输入输出中, 交易输入中的解锁脚本去解交易输出中的锁定脚本, 来完成合约执行. 要理解以太坊的智能合约, 需要暂且把比" />
+
+  <meta name="keywords" content="JMaxU, architecture, 景旭" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<link rel="canonical" href="http://jmaxu.github.io/post/blockchain-smartcontract-3/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+<meta property="og:title" content="以太坊中的智能合约" />
+<meta property="og:description" content="比特币中的智能合约存在于交易的输入输出中, 交易输入中的解锁脚本去解交易输出中的锁定脚本, 来完成合约执行. 要理解以太坊的智能合约, 需要暂且把比" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jmaxu.github.io/post/blockchain-smartcontract-3/" />
+
+
+
+<meta property="article:published_time" content="2017-12-29T20:45:37&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-12-29T20:45:37&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="以太坊中的智能合约">
+<meta itemprop="description" content="比特币中的智能合约存在于交易的输入输出中, 交易输入中的解锁脚本去解交易输出中的锁定脚本, 来完成合约执行. 要理解以太坊的智能合约, 需要暂且把比">
+
+
+<meta itemprop="datePublished" content="2017-12-29T20:45:37&#43;08:00" />
+<meta itemprop="dateModified" content="2017-12-29T20:45:37&#43;08:00" />
+<meta itemprop="wordCount" content="3680">
+
+
+
+<meta itemprop="keywords" content="区块链,以太坊," />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="以太坊中的智能合约"/>
+<meta name="twitter:description" content="比特币中的智能合约存在于交易的输入输出中, 交易输入中的解锁脚本去解交易输出中的锁定脚本, 来完成合约执行. 要理解以太坊的智能合约, 需要暂且把比"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">JMaxU&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">JMaxU&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">以太坊中的智能合约</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-12-29 </span>
+        <div class="post-category">
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            
+          </div>
+        <span class="more-meta"> 约 3680 字 </span>
+        <span class="more-meta"> 预计阅读 8 分钟 </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#基础概念">基础概念</a>
+<ul>
+<li><a href="#交易与合约关系">交易与合约关系</a></li>
+<li><a href="#与比特币智能合约区别">与比特币智能合约区别</a></li>
+</ul></li>
+<li><a href="#写几个合约">写几个合约</a>
+<ul>
+<li><a href="#一个简单的交易合约">一个简单的交易合约</a></li>
+<li><a href="#一个多签交易合约">一个多签交易合约</a></li>
+<li><a href="#一个简单的ico合约">一个简单的ICO合约</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>比特币中的智能合约存在于交易的输入输出中, 交易输入中的解锁脚本去解交易输出中的锁定脚本, 来完成合约执行.</p>
+
+<p>要理解以太坊的智能合约, 需要暂且把比特币的智能合约忘掉, 这样可能会更容易理解. 当初我学完比特币后, 开始学的以太坊, 总拿比特币中的知识去往以太坊来靠, 结果各种晕. 其实以太坊相对比特币更容易理解.</p>
+
+<p>要理解以太坊中的智能合约, 首先需要理解这么几个以太坊中的重要概念:</p>
+
+<h2 id="基础概念">基础概念</h2>
+
+<ul>
+<li><strong>账户</strong>
+比特币的实现并没有账户这个抽象. 在比特币中要获得某人账户的余额, 需要把这个人能解锁的所有锁定脚本中的余额全加起来. 比特币钱包中余额就把比特币区块链中所有交易遍历一遍找到钱包拥有者所能解锁的输出脚本, 并将其中的金额加起来实现的. 当然, 钱包为什么能很快展现出余额, 是因为使用了缓存.
+而在以太坊的实现中是直接就有账户这个抽象的, 发起交易就是从一个账户转钱给别一个账户, 一个账户的余额减少, 另一个账户的余额增加, 和咱们熟悉的银行转账一样.
+这种账户在以太坊中称为外部账户, 简称账户. 以太坊账户的余额是存在于以太坊区块链中的, 直接就可以获得, 不需要像比特币那么费劲遍历输出脚本.
+账户有地址, 地址就是公私钥中的公钥, 这个与比特币类似.</li>
+</ul>
+
+<p>在以太坊中还有另一个账户, 叫合约账户, 简称合约. 在以太坊中说合约, 其实说的是合约账户. 以太坊中的合约有余额, 有地址, 最重要的是还有自己的存储.
+应用可以利用合约的存储来存一些应用需要的东西, 之后的例子会说明.</p>
+
+<blockquote>
+<p>为了方便, 以下说起账户都是指外部账户, 说起合约都是指合约账户.</p>
+</blockquote>
+
+<ul>
+<li><strong>交易与消息</strong>
+以太坊中交易就是指从账户(简称账户)发起的由账户的私钥进行签名的一个消息体.
+以太坊中的交易可以从账户发到另一个账户, 也可以由账户发到一个合约.
+从一个账户到另一个账户的交易类似比特币中的简单交易, 将一些以太币转到另一个账户.
+从一个账户到一个合约的交易, 把账户所拥有的以太币转到合约的余额里并触发合约的执行. 这个有点像比特币中的支付给脚本(P2SH);</li>
+</ul>
+
+<p>以太坊中的消息是指由一个合约发起的到另一个合约的消息体, 把合约中的以太币转到另一个合约的余额里并触发另一个合约的执行. 可以理解为一个合约去调用另一个合约.</p>
+
+<p>交易与消息有如下区别:</p>
+
+<ul>
+<li>交易只能由账户发出. 消息只能由合约发出.</li>
+<li>交易的对方可以是账户也可以是合约, 消息的对方只能是合约.</li>
+<li>交易必须由账户的私钥签名, 消息不用签名.</li>
+</ul>
+
+<p>了解了账户, 合约, 交易, 消息的概念后, 那么他们之间是什么关系呢? 在以太坊中他们是如何串起来的?</p>
+
+<p>整个流程是这样的, 账户发起交易, 交易触发合约, 合约发送消息到其他合约, 也就是合约调用其他合约, 伴随着交易与合约的执行, 账户的余额, 合约的余额, 合约的存储都可能会发生变化.</p>
+
+<p>可以这么理解, 整个区块链就是个数据库, 记录了账户的余额, 合约的余额, 合约的存储, 而想要改变这个数据库中的值必须发起交易, 用交易以及交易所触发的合约来改变这个数据库中的值.
+交易的发起只能来自账户, 所以账户是整个区块链状态改变的源动力.</p>
+
+<p>为了加深理解, 断续阐述一下交易与合约的关系.</p>
+
+<h3 id="交易与合约关系">交易与合约关系</h3>
+
+<p>以太坊中交易的结构如下:</p>
+
+<ul>
+<li>交易的接收者. 可以是合约也可以是账户.</li>
+<li>签名. 账户私钥对交易进行签名.</li>
+<li>转账的金额.</li>
+<li>一个可选的<code>data</code>字段. 详情见之后交易与合约关系的讨论.</li>
+<li>交易费. 燃气值<code>GAS</code>与燃气单价<code>GASPRICE</code>, 这两个相乘就是交易费. 详情见:<a href="https://media.consensys.net/ethereum-gas-fuel-and-fees-3333e17fe1dc">https://media.consensys.net/ethereum-gas-fuel-and-fees-3333e17fe1dc</a>, 这里不赘述了.</li>
+</ul>
+
+<p>如下, 调用以太坊接口, 获得某个交易的内容:</p>
+
+<pre><code>var transaction = web3.eth.getTransaction('0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b');
+console.log(transaction);
+/*
+{
+  &quot;hash&quot;: &quot;0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b&quot;,
+  &quot;nonce&quot;: 2,
+  &quot;blockHash&quot;: &quot;0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46&quot;,
+  &quot;blockNumber&quot;: 3,
+  &quot;transactionIndex&quot;: 0,
+  &quot;from&quot;: &quot;0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b&quot;,
+  &quot;to&quot;: &quot;0x6295ee1b4f6dd65047762f924ecd367c17eabf8f&quot;,
+  &quot;value&quot;: BigNumber,
+  &quot;gas&quot;: 314159,
+  &quot;gasPrice&quot;: BigNumber,
+  &quot;input&quot;: &quot;0x57cb2fc4&quot;
+}
+*/
+</code></pre>
+
+<p>以太坊中交易与合约关系如下:</p>
+
+<ul>
+<li>合约的创建是由交易创建的.
+发起一个接收者为空的交易, data中写入合约代码, 就会创建一个合约.</li>
+</ul>
+
+<p>如下, 调用以太坊接口, 创建一个合约:</p>
+
+<pre><code>// compiled solidity source code using https://chriseth.github.io/cpp-ethereum/
+var code = &quot;603d80600c6000396000f3007c01000000000000000000000000000000000000000000000000000000006000350463c6888fa18114602d57005b6007600435028060005260206000f3&quot;;
+
+web3.eth.sendTransaction({data: code}, function(err, transactionHash) {
+  if (!err)
+    console.log(transactionHash); // &quot;0x7f9fade1c0d57a7af66ab4ead7c2eb7b11a91385&quot;
+});
+</code></pre>
+
+<ul>
+<li>合约的调用是可以由交易来触发调用的.
+发起一个接收者为合约地址的交易, data写入调用合约的代码, 则触发合约相关方法的执行.这种方式一般用于对合约的状态修改(余额, 存储).</li>
+<li>合约的调用可以直接调用, 不用发起交易.
+这种一般用于查询合约状态(余额, 存储).</li>
+</ul>
+
+<p>接下来与比特币中的智能合约作个对比.</p>
+
+<h3 id="与比特币智能合约区别">与比特币智能合约区别</h3>
+
+<p>以太坊中的智能合约比比特币中的智能合约更强大, 更灵活.</p>
+
+<ul>
+<li>以太坊中的智能合约与交易是分开的单独存储.
+比特币中的智能合约存在于交易的输入与输出中, 而以太坊中的合约与交易是分开存储的.</li>
+<li>以太坊的智能合约对开发人员更友好.
+可以用都比较熟悉的类似javascript语言的代码来编写合约. 合约进行编译后运行在以太坊虚拟机evm上. 这里的虚拟机evm可以类比为java虚拟机jvm.</li>
+<li>以太坊的合约语言图灵完备, 而比特币是图灵不完备的.
+比如比特币为了防止在支付时发生阻塞, 不支持循环语句. 而以太坊支持, 以太坊根据代码执行所占资源收取交易费来阻止恶意循环.</li>
+<li>以太坊合约有状态, 比特币合约没有.
+以太坊中的合约其实全称为合约账户, 有自己的状态. 比如合约的余额, 合约的存储.
+而比特币的合约是没有状态的. 这大大限制了合约的作用.</li>
+<li>以太坊合约可以获取区块中的数据, 比特币不能.
+比如以太坊中的合约可以拿到上一个区块的hash值等一些区块的信息而比特币拿不到区块的任何信息.</li>
+<li>由于以太坊智能合约的强大, 导致合约可以写的很复杂, 而复杂必然会导致合约更容易产生bug.
+像比特币正因为合约语法简单, 限制多, 所以非常健壮, 诞生以来未出现严重bug.</li>
+</ul>
+
+<p>以太坊做了整个区块链的基础设施, 而把合约的编写抛给了用户, 让用户可以根据自己的业务需求只编写合约, 而不用费劲再自己搭一个区块链.
+那么接下来我们就通过几个合约例子, 来加深理解一下以太坊智能合约.</p>
+
+<h2 id="写几个合约">写几个合约</h2>
+
+<h3 id="一个简单的交易合约">一个简单的交易合约</h3>
+
+<p>在以太坊中, 像小帅支付给小强5个以太币这样的简单交易是不需要写智能合约的. 直接调用以太坊接口就可以:</p>
+
+<pre><code>web3.eth.sendTransaction(transactionObject [, callback])
+/*
+transactionObject中包含了小帅的地址, 小强的地址, 以太转多少以太币.
+*/
+</code></pre>
+
+<p>底层也是通过用私钥签名, 用公钥进行验签来实现的.
+比如小帅发起向小强支付5个以太币的交易, 该交易带有小帅的私钥签名. 以太坊节点收到这个交易后会用小帅的公钥去验证交易的签名.</p>
+
+<p>接下来看一下以太坊中多签交易的实现.</p>
+
+<h3 id="一个多签交易合约">一个多签交易合约</h3>
+
+<p>在比特币中的多签交易的实现, 是把比特币支付给一个需要多人签名才能解锁输出脚本中.
+在以太坊中, 则是把以太币支付给一个需要提供多人签名才能转出余额的合约中. 也就是先把以太币转到一个合约里, 而合约代码控制了合约余额的转出需要多人签名.</p>
+
+<p>在以太坊中实现多签交易的合约代码如下:</p>
+
+<pre><code>pragma solidity 0.4.15;
+contract SimpleMultiSig {
+
+  uint public nonce;                // (only) mutable state
+  uint public threshold;            // immutable state
+  mapping (address =&gt; bool) isOwner; // immutable state
+  address[] public ownersArr;        // immutable state
+
+  //构造方法, 创建一个合约只当具有owners中的threshold_个签名, 才可以把合约中的币转出去.
+  function SimpleMultiSig(uint threshold_, address[] owners_) {
+    require(owners_.length &lt;= 10 &amp;&amp; threshold_ &lt;= owners_.length &amp;&amp; threshold_ != 0);
+
+    address lastAdd = address(0);
+    for (uint i=0; i&lt;owners_.length; i++) {
+      require(owners_[i] &gt; lastAdd);
+      isOwner[owners_[i]] = true;
+      lastAdd = owners_[i];
+    }
+    ownersArr = owners_;
+    threshold = threshold_;
+  }
+
+  //把合约中的币转到destination这个地址. 其中sigV, sigR, sigS是签名相关数据.
+  function execute(uint8[] sigV, bytes32[] sigR, bytes32[] sigS, address destination, uint value, bytes data) {
+    require(sigR.length == threshold);
+    require(sigR.length == sigS.length &amp;&amp; sigR.length == sigV.length);
+
+    //签名算法: https://github.com/ethereum/EIPs/issues/191
+    bytes32 txHash = keccak256(byte(0x19), byte(0), this, destination, value, data, nonce);
+
+    address lastAdd = address(0); // cannot have address(0) as an owner
+    //以下证明签名中包含至少threshold个正确签名.
+    for (uint i = 0; i &lt; threshold; i++) {
+        address recovered = ecrecover(txHash, sigV[i], sigR[i], sigS[i]);
+        require(recovered &gt; lastAdd &amp;&amp; isOwner[recovered]);
+        lastAdd = recovered;
+    }
+
+    //如果程序能走到这里, 证明至少有threshold个正确签名.
+    nonce = nonce + 1;
+    require(destination.call.value(value)(data));
+  }
+
+  function () payable {}
+}
+</code></pre>
+
+<p>以上是一个简单版的多签合约, 以太坊官方的多签合约比这复杂很多, 功能也相对更加强大.</p>
+
+<p>官方多签合约:<a href="https://github.com/ethereum/dapp-bin/blob/master/wallet/wallet.sol">https://github.com/ethereum/dapp-bin/blob/master/wallet/wallet.sol</a>
+官方多签规范协议:<a href="https://github.com/ethereum/EIPs/issues/763">https://github.com/ethereum/EIPs/issues/763</a>
+官方多签有更多的功能, 比如限制每天的提取限额, 大额需要多签, 小额免多签, 替换owner等.
+从官方多签合约可以看出以太坊合约的灵活与强大.</p>
+
+<h3 id="一个简单的ico合约">一个简单的ICO合约</h3>
+
+<p>ICO就是首次发行代币, 背后的实现就是数字代币合约, 以下是一个以太坊中简单的数字代币合约的实现:</p>
+
+<pre><code>pragma solidity ^0.4.0;
+
+contract Coin {
+    //谁可以发行币
+    address public minter;
+    //每个账户的代币余额, 类似php中的二维数组, java中的map.
+    mapping (address =&gt; uint) public balances;
+
+    //转账事件, client可以订阅收到这个事件
+    event Sent(address from, address to, uint amount);
+
+    //合约构造方法, 创建合约时执行, 只执行一次.
+    //合约一旦创建, minter值不能再修改. 因为此合约没有提供修改miner的方法.
+    function Coin() public {
+        minter = msg.sender;
+    }
+
+    //改变账户币的余额
+    function mint(address receiver, uint amount) public {
+        if (msg.sender != minter) return;
+        balances[receiver] += amount;
+    }
+
+    //转账, 将交易发起者(msg.sender)的amount代币转给receiver.
+    function send(address receiver, uint amount) public {
+        if (balances[msg.sender] &lt; amount) return;
+        balances[msg.sender] -= amount;
+        balances[receiver] += amount;
+        Sent(msg.sender, receiver, amount);
+    }
+}
+</code></pre>
+
+<p>可以看到实现一个数字代币, 特别简单.</p>
+
+<p>所以搞一个ICO骗钱在技术没有成本, 主要地要把界面, 宣传搞好. 像之前这个来钱太他妈容易了. 无本万利啊.</p>
+
+<p>以上是一个最简版的, 官方有一个数据代币的教程, 稍微复杂点:<a href="https://www.ethereum.org/token">https://www.ethereum.org/token</a></p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">景旭</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2017-12-29</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a>
+          
+          <a href="/tags/%E4%BB%A5%E5%A4%AA%E5%9D%8A/">以太坊</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/applescript-evernote/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">利用applescript复习evernote笔记</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/blockchain-smartcontract-1/">
+            <span class="next-text nav-default">区块链智能合约特点</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:woshijingxu@gmail.com" class="iconfont icon-email" title="email"></a>
+  <a href="http://jmaxu.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">景旭</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=2.7.0"></script>
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?d810cee368eb12bfc47ed60da16a3214";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+</body>
+</html>

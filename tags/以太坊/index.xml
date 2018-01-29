@@ -12,12 +12,21 @@
     
     
     <item>
-      <title>区块链之智能合约</title>
-      <link>http://jmaxu.github.io/post/blockchain-smartcontract/</link>
+      <title>以太坊中的智能合约</title>
+      <link>http://jmaxu.github.io/post/blockchain-smartcontract-3/</link>
       <pubDate>Fri, 29 Dec 2017 20:45:37 +0800</pubDate>
       
-      <guid>http://jmaxu.github.io/post/blockchain-smartcontract/</guid>
-      <description>本文你将了解到 比特币中智能合约的原理. 以太坊中智能合约的原理. 如写一个数字代币(ICO). 迅雷的链克区块链是怎么做的. 如何搭建一个私有网络的</description>
+      <guid>http://jmaxu.github.io/post/blockchain-smartcontract-3/</guid>
+      <description>比特币中的智能合约存在于交易的输入输出中, 交易输入中的解锁脚本去解交易输出中的锁定脚本, 来完成合约执行. 要理解以太坊的智能合约, 需要暂且把比</description>
+    </item>
+    
+    <item>
+      <title>搭建一个私有网络的区块链</title>
+      <link>http://jmaxu.github.io/post/blockchain-smartcontract-3/</link>
+      <pubDate>Fri, 29 Dec 2017 20:45:37 +0800</pubDate>
+      
+      <guid>http://jmaxu.github.io/post/blockchain-smartcontract-3/</guid>
+      <description>在这篇文章中, 我们用以太坊搭建一个私有网络的属于自己的区块链, 编写一个数据认证的智能合约并部署到私有网络的区块链上. 私有网络的区块链与联盟链</description>
     </item>
     
   </channel>

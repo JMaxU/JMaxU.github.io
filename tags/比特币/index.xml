@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>区块链之智能合约</title>
-      <link>http://jmaxu.github.io/post/blockchain-smartcontract/</link>
+      <title>比特币中的智能合约</title>
+      <link>http://jmaxu.github.io/post/blockchain-smartcontract-2/</link>
       <pubDate>Fri, 29 Dec 2017 20:45:37 +0800</pubDate>
       
-      <guid>http://jmaxu.github.io/post/blockchain-smartcontract/</guid>
-      <description>本文你将了解到 比特币中智能合约的原理. 以太坊中智能合约的原理. 如写一个数字代币(ICO). 迅雷的链克区块链是怎么做的. 如何搭建一个私有网络的</description>
+      <guid>http://jmaxu.github.io/post/blockchain-smartcontract-2/</guid>
+      <description>说起智能合约, 往往想到的不是比特币, 而是以太坊等其他区块链. 其实比特币也是有智能合约的, 之所以比特币被称为可编程货币, 就是因为比特币的智能合</description>
     </item>
     
   </channel>
