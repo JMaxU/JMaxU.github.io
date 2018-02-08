@@ -10,7 +10,21 @@
   </url>
   
   <url>
+    <loc>http://jmaxu.github.io/post/blockchain-smartcontract-2/</loc>
+    <lastmod>2017-12-29T20:45:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://jmaxu.github.io/post/blockchain-smartcontract-3/</loc>
+    <lastmod>2017-12-29T20:45:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jmaxu.github.io/post/blockchain-smartcontract-4/</loc>
     <lastmod>2017-12-29T20:45:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -18,20 +32,6 @@
   
   <url>
     <loc>http://jmaxu.github.io/post/blockchain-smartcontract-1/</loc>
-    <lastmod>2017-12-29T20:45:37+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jmaxu.github.io/post/blockchain-smartcontract-3/</loc>
-    <lastmod>2017-12-29T20:45:37+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jmaxu.github.io/post/blockchain-smartcontract-2/</loc>
     <lastmod>2017-12-29T20:45:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

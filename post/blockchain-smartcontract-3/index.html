@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>搭建一个私有网络的区块链 - JMaxU&#39;s blog</title>
+  <title>区块链智能合约特点 - JMaxU&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="景旭" />
-  <meta name="description" content="在这篇文章中, 我们用以太坊搭建一个私有网络的属于自己的区块链, 编写一个数据认证的智能合约并部署到私有网络的区块链上. 私有网络的区块链与联盟链" />
+  <meta name="description" content="智能合约是运行在区块链上的一段相关方约定好的代码, 可以理解为就是合同, 只不过是用代码写的, 可执行的. 区块链上的智能合约有以下优点: 智能. 不像" />
 
   <meta name="keywords" content="JMaxU, architecture, 景旭" />
 
@@ -47,8 +47,8 @@
 <link href="/dist/even.min.css?v=2.7.0" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
-<meta property="og:title" content="搭建一个私有网络的区块链" />
-<meta property="og:description" content="在这篇文章中, 我们用以太坊搭建一个私有网络的属于自己的区块链, 编写一个数据认证的智能合约并部署到私有网络的区块链上. 私有网络的区块链与联盟链" />
+<meta property="og:title" content="区块链智能合约特点" />
+<meta property="og:description" content="智能合约是运行在区块链上的一段相关方约定好的代码, 可以理解为就是合同, 只不过是用代码写的, 可执行的. 区块链上的智能合约有以下优点: 智能. 不像" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jmaxu.github.io/post/blockchain-smartcontract-3/" />
 
@@ -68,19 +68,19 @@
 
 
 
-<meta itemprop="name" content="搭建一个私有网络的区块链">
-<meta itemprop="description" content="在这篇文章中, 我们用以太坊搭建一个私有网络的属于自己的区块链, 编写一个数据认证的智能合约并部署到私有网络的区块链上. 私有网络的区块链与联盟链">
+<meta itemprop="name" content="区块链智能合约特点">
+<meta itemprop="description" content="智能合约是运行在区块链上的一段相关方约定好的代码, 可以理解为就是合同, 只不过是用代码写的, 可执行的. 区块链上的智能合约有以下优点: 智能. 不像">
 
 
 <meta itemprop="datePublished" content="2017-12-29T20:45:37&#43;08:00" />
 <meta itemprop="dateModified" content="2017-12-29T20:45:37&#43;08:00" />
-<meta itemprop="wordCount" content="2552">
+<meta itemprop="wordCount" content="625">
 
 
 
-<meta itemprop="keywords" content="区块链,以太坊," />
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="搭建一个私有网络的区块链"/>
-<meta name="twitter:description" content="在这篇文章中, 我们用以太坊搭建一个私有网络的属于自己的区块链, 编写一个数据认证的智能合约并部署到私有网络的区块链上. 私有网络的区块链与联盟链"/>
+<meta itemprop="keywords" content="区块链,智能合约," />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="区块链智能合约特点"/>
+<meta name="twitter:description" content="智能合约是运行在区块链上的一段相关方约定好的代码, 可以理解为就是合同, 只不过是用代码写的, 可执行的. 区块链上的智能合约有以下优点: 智能. 不像"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -143,7 +143,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">搭建一个私有网络的区块链</h1>
+      <h1 class="post-title">区块链智能合约特点</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2017-12-29 </span>
@@ -152,8 +152,8 @@
               <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             
           </div>
-        <span class="more-meta"> 约 2552 字 </span>
-        <span class="more-meta"> 预计阅读 6 分钟 </span>
+        <span class="more-meta"> 约 625 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
     </header>
@@ -164,320 +164,42 @@
   <h2 class="post-toc-title">文章目录</h2>
   
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#搭建一个私有网络的区块链">搭建一个私有网络的区块链</a>
-<ul>
-<li><a href="#安装">安装</a>
-<ul>
-<li><a href="#安装geth">安装geth</a></li>
-<li><a href="#安装solc">安装solc</a></li>
-<li><a href="#启动">启动</a></li>
-</ul></li>
-<li><a href="#创建账户">创建账户</a></li>
-<li><a href="#挖点矿">挖点矿</a></li>
-<li><a href="#编写一个数字认证智能合约并部署到区块链">编写一个数字认证智能合约并部署到区块链</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
+    
   </div>
 </div>
 
     
     <div class="post-content">
-      
+      <p>智能合约是运行在区块链上的一段相关方约定好的代码, 可以理解为就是合同, 只不过是用代码写的, 可执行的.</p>
 
-<p>在这篇文章中, 我们用以太坊搭建一个私有网络的属于自己的区块链, 编写一个数据认证的智能合约并部署到私有网络的区块链上.</p>
-
-<blockquote>
-<p>私有网络的区块链与联盟链是不同的概念.
-私有网络区块链是说建立一条与以太坊公有链不同的另一个公有链.
-而联盟链是指只有特定的一些人才可以参与的区链链.
-如果把私有网络的区块链建立在一个局域网内, 只有局域网内的人才能参与, 那么这样的私有网络区块链也就是联盟链了.</p>
-</blockquote>
-
-<h2 id="搭建一个私有网络的区块链">搭建一个私有网络的区块链</h2>
-
-<h3 id="安装">安装</h3>
-
-<h4 id="安装geth">安装geth</h4>
-
-<p>安装以太坊go语言版客户端</p>
-
-<pre><code>sudo yum install golang
-sudo yum install gmp-devel
-git clone https://github.com/ethereum/go-ethereum
-cd go-ethereum/
-make geth
-ls -al  build/bin/geth
-</code></pre>
-
-<p>中间遇到iconv库的链接问题, 解决:</p>
-
-<pre><code>rm /usr/local/include/iconv.h
-</code></pre>
-
-<h4 id="安装solc">安装solc</h4>
-
-<p>合约语言Solidity的编译器</p>
-
-<pre><code>npm install -g solc
-</code></pre>
-
-<h4 id="启动">启动</h4>
-
-<p>私有网络并不是私链.
-创建文件<code>genesis.json</code> 以下内容</p>
-
-<pre><code>{
-    &quot;config&quot;: {
-        &quot;chainId&quot;: 11988,
-        &quot;homesteadBlock&quot;: 0,
-        &quot;eip155Block&quot;: 0,
-        &quot;eip158Block&quot;: 0
-    },
-    &quot;difficulty&quot;: &quot;0x400&quot;,
-    &quot;gasLimit&quot;: &quot;0x8000000&quot;,
-    &quot;alloc&quot;: {}
-}
-</code></pre>
-
-<p>其中</p>
+<p><strong>区块链上的智能合约有以下优点:</strong></p>
 
 <ul>
-<li><code>difficulty</code>为初始打包也就是挖矿的难度, 因为是私有网络初始设低一点.</li>
-<li><code>chainId</code>链的id,不同链, 链id不一样, 写一个自己的和公有的区分开.</li>
+<li><strong>智能.</strong> 不像以前传统的合约, 智能合约是段代码, 当触发条件是可以自动执行的.</li>
+<li><strong>高可用.</strong> 合约部署后, 会扩散到所有节点, 有大量备份, 不可能丢.</li>
+<li><strong>去中心.</strong> 不需要第三方权威机构来做担保, 也就会省一笔中介费. 虽然合约执行会收取一定费用, 但这个费用相比中介费用会低太多.</li>
+<li><strong>不可篡改.</strong> 合约部署到区块链后不可篡改, 安全.</li>
+<li><strong>匿名</strong> 区块链上只有公钥私钥, 没有任何个人信息, 对个人隐私保护好.</li>
 </ul>
 
-<p>运行以下命令初始化两个节点:</p>
-
-<pre><code>geth --datadir ./node1/ init ./genesis.json
-geth --datadir ./node2/ init ./genesis.json
-</code></pre>
-
-<p>这时初始化两个节点, 但并没有启动.</p>
-
-<p>为了节点之间互相能知道, 一种方法是启动节点时指定, 另一个是使用bootnode节点, 启动时都连接bootnode节点, 这样就可以从bootnode中获得其他节点的信息.</p>
-
-<p>启动bootnode</p>
-
-<pre><code>bootnode -genkey bootnode.key
-bootnode -nodekey bootnode.key -addr &quot;:9100&quot; -verbosity 6
-</code></pre>
-
-<p>第一条命令生成key, 我理解就是这个bootnode的id.
-第二条命令是启动bootnode节点.</p>
-
-<p>启动这两个节点</p>
-
-<pre><code>geth --networkid 11988 --datadir ./node1/ --syncmode &quot;full&quot; --rpc --rpcapi db,eth,net,web3,personal --port 19101 --rpcport 9101 --rpcaddr 127.0.0.1 --rpccorsdomain &quot;*&quot; -bootnodes enode://8f10b7c8ecb0b04baac38c0d17e7ebe1e15320b19ccc36ad90aa197c02346e46bcc9d2d058cdd401f8e1cf928b724178c673a9c5df3395131e808e76620a2656@127.0.0.1:9100
-geth --networkid 11988 --datadir ./node2/ --syncmode &quot;full&quot; --rpc --rpcapi db,eth,net,web3,personal --port 19102 --rpcport 9102 --rpcaddr 127.0.0.1 --rpccorsdomain &quot;*&quot; --bootnodes &quot;enode://8f10b7c8ecb0b04baac38c0d17e7ebe1e15320b19ccc36ad90aa197c02346e46bcc9d2d058cdd401f8e1cf928b724178c673a9c5df3395131e808e76620a2656@127.0.0.1:9100&quot;
-</code></pre>
-
-<p>其中</p>
+<p><strong>优点也是缺点:</strong></p>
 
 <ul>
-<li><code>networdid</code>也chainId相同.</li>
-<li><code>port</code>指定节点间互相通过的端口.</li>
-<li><code>rpcport</code>指定节点对外暴露的接口所用的端口.</li>
+<li><strong>去中心.</strong> 去中心也是有缺点的, 比如不小心把合约执行错了, 则回退不了. 如果有银行, 有政府这样的中心机构, 他们可以会帮你进行撤回.</li>
+<li><strong>不可篡改.</strong> 由于区块链的不可篡改, 如果合约有bug, 改不了. 像以太坊与以太坊经典的硬分叉就是为了修正一个bug, 这代价是巨大的. 合约代码部署到区块链后, 有bug那就是永远的bug, 不可修正, 这对开发测试的要求很高.</li>
+<li><strong>匿名.</strong> 公链目前都是匿名的. 匿名就不知道对方是谁, 这个会让一些罪犯钻空子, 比如洗钱, 还有之前的勒索病毒.</li>
 </ul>
 
-<h3 id="创建账户">创建账户</h3>
+<p><strong>智能合约的一些例子:</strong></p>
 
-<p>启动后在每个节点的目录下会有一个geth.ipc文件, 这个文件用来连接节点时用.</p>
-
-<p>连接节点创建外部账户</p>
-
-<pre><code>geth attach /home/dev/git/blockchain/my-private-ethereum/node1/geth.ipc
-web3.eth.accounts
-personal.newAccount()
-web3.eth.accounts
-eth.getBalance(web3.eth.accounts[0])
-</code></pre>
-
-<p>这样就创建了一个账户, 刚创建的账户的余额为0.</p>
-
-<h3 id="挖点矿">挖点矿</h3>
-
-<p>为了搞点余额我们可以进行挖矿
-开始挖矿</p>
-
-<pre><code>miner.start()
-</code></pre>
-
-<p>可以在node1节点的日志中看到如下:</p>
-
-<pre><code>INFO [12-28|15:53:50] 🔗 block reached canonical chain          number=5  hash=4a6b09…5f5812
-INFO [12-28|15:53:50] 🔨 mined potential block                  number=10 hash=f4c71b…518dfb
-INFO [12-28|15:53:50] Commit new mining work                   number=11 txs=0 uncles=0 elapsed=127.859µs
-INFO [12-28|15:53:50] Generating DAG in progress               epoch=1 percentage=47 elapsed=19.980s
-INFO [12-28|15:53:51] Successfully sealed new block            number=11 hash=71d1ee…1aa278
-INFO [12-28|15:53:51] 🔗 block reached canonical chain          number=6  hash=6e7a6e…a7774d
-INFO [12-28|15:53:51] 🔨 mined potential block                  number=11 hash=71d1ee…1aa278
-INFO [12-28|15:53:51] Commit new mining work                   number=12 txs=0 uncles=0 elapsed=125.815µs
-INFO [12-28|15:53:51] Generating DAG in progress               epoch=1 percentage=48 elapsed=20.811s
-INFO [12-28|15:53:51] Successfully sealed new block            number=12 hash=6009b7…506641
-INFO [12-28|15:53:51] 🔗 block reached canonical chain          number=7  hash=2116bb…8e6948
-INFO [12-28|15:53:51] 🔨 mined potential block                  number=12 hash=6009b7…506641
-INFO [12-28|15:53:51] Commit new mining work                   number=13 txs=0 uncles=0 elapsed=157.238µs
-INFO [12-28|15:53:51] Successfully sealed new block            number=13 hash=cf04e9…baac3b
-INFO [12-28|15:53:51] 🔗 block reached canonical chain          number=8  hash=011c78…454cf2
-INFO [12-28|15:53:51] 🔨 mined potential block                  number=13 hash=cf04e9…baac3b
-</code></pre>
-
-<p>由于我们在genesis.json配置初始挖矿难度值很低, 所以我们几乎挖矿速度很快.
-这时再查看余额</p>
-
-<pre><code>eth.getBalance(web3.eth.accounts[0])
-45000000000000000000
-</code></pre>
-
-<p>发现余额已经增加了. 这里显示的单位为wei. 相当于45个以太币.</p>
-
-<blockquote>
-<p>以太的转换可以使用这个网址:<a href="https://etherconverter.online/">https://etherconverter.online/</a></p>
-</blockquote>
-
-<p>现在我们有钱了, 那就可以部署和执行合约.
-接下来我们写一个数字认证的合约, 并部署到区块链上.</p>
-
-<h3 id="编写一个数字认证智能合约并部署到区块链">编写一个数字认证智能合约并部署到区块链</h3>
-
-<p><strong>安装web3环境</strong></p>
-
-<p>web3相当于一个面对本地区块链节点的javascript客户端.</p>
-
-<pre><code>npm install web3@0.20.1 solc
-</code></pre>
-
-<p>智能合约如下:</p>
-
-<pre><code>pragma solidity ^0.4.0;
-// 数字认证 存在证明
-contract ProofOfExistence {
-
-    mapping (bytes32 =&gt; bool) proofs;
-
-    // 存储证明到合约中
-    function storeProof(bytes32 proof) {
-        proofs[proof] = true;
-    }
-
-    // 检查证明是否存在
-    function hasProof(bytes32 proof) returns (bool) {
-        return proofs[proof];
-    }
-}
-</code></pre>
-
-<p>数字证明很简单, 我们只要把需要证明的数据的hash值记进区块链中, 利用hash的碰撞阻力特性, 证明某段数据的存在.</p>
-
-<p><strong>部署合约</strong></p>
-
-<p>node进入</p>
-
-<pre><code>Web3 = require('web3')
-//9102为启动节点时设置的接口所用的端口
-web3 = new Web3(new Web3.providers.HttpProvider(&quot;http://localhost:9101&quot;));
-//查一下有没有账户
-web3.eth.accounts
-//创建一个账户, 如果没有的话, 由于我们已经用geth创建了所以这里是有账户的
-web3.personal.newAccount('abcd')
-//再次调用, 发现有了账户
-web3.eth.accounts
-//查看余额, 由于我们挖了会矿, 所以账户是有余额的
-web3.eth.getBalance(web3.eth.accounts[0])
-//解锁账户, 如果没有解锁的话
-web3.personal.unlockAccount(web3.eth.accounts[0], 'abcd', 15000)
-//读取合约代码
-code = fs.readFileSync('ProofOfExistence.sol').toString()
-//加载solidity编译器
-solc = require('solc')
-//编译代码
-compiledCode = solc.compile(code)
-//生成abi
-abiDefinition = JSON.parse(compiledCode.contracts[':ProofOfExistence'].interface)
-//创建合约
-VotingContract = web3.eth.contract(abiDefinition)
-//拿到合约字节码
-byteCode = compiledCode.contracts[':ProofOfExistence'].bytecode
-//将合约字节码 部署到区块链
-deployedContract = VotingContract.new({data: '0x' + byteCode, from: web3.eth.accounts[0], gas: 5000000})
-//查看合约地址, 会发现合约地址为空, 这里因为合约尚未打包到区块里, 这里重启开启挖矿来打包区块. 再次查看就有地址了
-deployedContract.address
-</code></pre>
-
-<p><strong>调用合约</strong></p>
-
-<pre><code>//拿到合约实例
-contractInstance = VotingContract.at(deployedContract.address)
-//调用合约方法, 参数中的hash值是通过调用php方法hash(&quot;sha256&quot;, &quot;abcdefgxxx合同&quot;)获得的
-contractInstance.storeProof(0x27a2df9c083e06109dfeb9633c711b796e0bd85ac049f5f55646d31def21b833)
-//如果报invalid address, 那是因为默认的交易发送者, 执行以下, 再执行以上命令就好了
-web3.eth.defaultAccount = web3.eth.accounts[0]
-//contractInstance.storeProof执行成功后, 会返回一个地址, 这个地址为这次交易的地址, 执行以下可以查看这个交易
-web3.eth.getTransaction('交易地址')
-//返回如下结果
-{ blockHash: '0x0000000000000000000000000000000000000000000000000000000000000000',
-  blockNumber: null,
-  from: '0xb19c93e4ed8553f0c8bbef8a59deba54215695bb',
-  gas: 90000,
-  gasPrice: BigNumber { s: 1, e: 10, c: [ 18000000000 ] },
-  hash: '0xcafc78b00868c7bd45ecbb7b9e8cf4fa4f68aa10246c76319757202af1633175',
-  input: '0x8952877b27a2df9c083e05f415c1c1c1ce3059e749c7a4ff96d5b08b3000000000000000',
-  nonce: 1,
-  to: '0x1efe34a3fe3b46e59fed454e86dfead63efd243d',
-  transactionIndex: 0,
-  value: BigNumber { s: 1, e: 0, c: [ 0 ] },
-  v: '0x5dcb',
-  r: '0x3cf890381f951e1aeec61d61646be95926be8dd0436829674f3d60eb8fcf4ad5',
-  s: '0x6070af4a62306071677db9aa0016ea4e9dc4d78a76a97a108203f47f232a8f87' }
-//blockHash为0000...是因为尚未打包, 现在没有blockhash. 启动矿工再次打包, 后再执行, 结果如下
-{ blockHash: '0xf770e050eb0edde3ac6a9501790ec66f4d239978c3374e98940e2bcd8c2d8a90',
-  blockNumber: 36,
-  from: '0xb19c93e4ed8553f0c8bbef8a59deba54215695bb',
-  gas: 90000,
-  gasPrice: BigNumber { s: 1, e: 10, c: [ 18000000000 ] },
-  hash: '0xcafc78b00868c7bd45ecbb7b9e8cf4fa4f68aa10246c76319757202af1633175',
-  input: '0x8952877b27a2df9c083e05f415c1c1c1ce3059e749c7a4ff96d5b08b3000000000000000',
-  nonce: 1,
-  to: '0x1efe34a3fe3b46e59fed454e86dfead63efd243d',
-  transactionIndex: 0,
-  value: BigNumber { s: 1, e: 0, c: [ 0 ] },
-  v: '0x5dcb',
-  r: '0x3cf890381f951e1aeec61d61646be95926be8dd0436829674f3d60eb8fcf4ad5',
-  s: '0x6070af4a62306071677db9aa0016ea4e9dc4d78a76a97a108203f47f232a8f87' }
-//可以看到blockHash有值.
-//咱们再次调用另外的hasProof方法看看, 如下
-contractInstance.hasProof(0x27a2df9c083e06109dfeb9633c711b796e0bd85ac049f5f55646d31def21b833)
-//发现又返回了个交易地址, 我们的hashProof只是个查询方法, 没必须发起交易, 用如下方式来查询
-contractInstance.hasProof.call(0x27a2df9c083e06109dfeb9633c711b796e0bd85ac049f5f55646d31def21b833).toLocaleString()
-//返回true, 证明区块链里有这个key, 也就进行了数据证明
-</code></pre>
-
-<p><strong>在以前, 有很多同学直接用geth部署, 目前由于web3.eth.compile.solidity已在1.6版本去掉, 所以以下方式已废弃.</strong></p>
-
-<pre><code>var proofOfExistence = 'contract ProofOfExistence { mapping (bytes32 =&gt; bool) proofs;  function storeProof(bytes32 proof) { proofs[proof] = true; }  function hasProof(bytes32 proof) returns (bool) { return proofs[proof]; } }';
-var proofCompiled = web3.eth.compile.solidity(proofOfExistence)
-proofCompiled
-var proofContract = web3.eth.contract(proofCompiled.ProofOfExistence.info.abiDefinition);
-var proofHash = '27a2df9c083e06109dfeb9633c711b796e0bd85ac049f5f55646d31def21b833'
-var proof = proofContract.new(proofHash, {from: eth.accounts[0], data: proofCompiled.ProofOfExistence.code, gas: 4000000},
-  function(e, contract) {
-    if (!e) {
-      if (!contract.address) {
-        console.log(&quot;Contract transaction send: TransactionHash: &quot; +
-          contract.transactionHash + &quot; waiting to be mined...&quot;);
-      } else {
-        console.log(&quot;Contract mined! Address: &quot; + contract.address);
-        console.log(contract);
-      }
-    }
-  })
-</code></pre>
+<ul>
+<li>数字货币. 数字货币可以说是智能合约里最广的应用了.</li>
+<li>数字认证. 认证你确实拥有某份数据, 比如电子合同.</li>
+<li>以太猫. 以太坊上最后比较火一个游戏. <a href="https://www.cryptokitties.co/">https://www.cryptokitties.co/</a>.</li>
+<li>赌博. 赌博可以写成一个合约, 双方打赌, 赌错的一方支付给赌对的一方多少钱.</li>
+<li>众筹. 合约可以写成, 当到达一个金额时, 就怎样怎样.</li>
+<li>对账. 双方操作同一份数据库, 所以也就不需要对账了.</li>
+</ul>
 
     </div>
 
@@ -507,21 +229,21 @@ var proof = proofContract.new(proofHash, {from: eth.accounts[0], data: proofComp
           
           <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a>
           
-          <a href="/tags/%E4%BB%A5%E5%A4%AA%E5%9D%8A/">以太坊</a>
+          <a href="/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/">智能合约</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/blockchain-smartcontract-1/">
+          <a class="prev" href="/post/blockchain-smartcontract-2/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">区块链智能合约特点</span>
+            <span class="prev-text nav-default">以太坊中的智能合约</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
-          <a class="next" href="/post/blockchain-smartcontract-2/">
-            <span class="next-text nav-default">比特币中的智能合约</span>
+          <a class="next" href="/post/blockchain-smartcontract-4/">
+            <span class="next-text nav-default">搭建一个私有网络的区块链</span>
             <span class="prev-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
