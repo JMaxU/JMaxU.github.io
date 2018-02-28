@@ -6,7 +6,7 @@
     <description>Recent content in 智能合约 on JMaxU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 29 Dec 2017 20:45:37 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Oct 2017 20:45:37 +0800</lastBuildDate>
     
 	<atom:link href="http://jmaxu.github.io/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>区块链智能合约特点</title>
       <link>http://jmaxu.github.io/post/blockchain-smartcontract-3/</link>
-      <pubDate>Fri, 29 Dec 2017 20:45:37 +0800</pubDate>
+      <pubDate>Sun, 29 Oct 2017 20:45:37 +0800</pubDate>
       
       <guid>http://jmaxu.github.io/post/blockchain-smartcontract-3/</guid>
       <description>智能合约是运行在区块链上的一段相关方约定好的代码, 可以理解为就是合同, 只不过是用代码写的, 可执行的. 区块链上的智能合约有以下优点: 智能. 不像</description>

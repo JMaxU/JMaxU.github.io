@@ -23,7 +23,7 @@
     <item>
       <title>以太坊中的智能合约</title>
       <link>http://jmaxu.github.io/post/blockchain-smartcontract-2/</link>
-      <pubDate>Fri, 29 Dec 2017 20:45:37 +0800</pubDate>
+      <pubDate>Sun, 29 Oct 2017 20:45:37 +0800</pubDate>
       
       <guid>http://jmaxu.github.io/post/blockchain-smartcontract-2/</guid>
       <description>比特币中的智能合约存在于交易的输入输出中, 交易输入中的解锁脚本去解交易输出中的锁定脚本, 来完成合约执行. 要理解以太坊的智能合约, 需要暂且把比</description>
@@ -32,7 +32,7 @@
     <item>
       <title>区块链智能合约特点</title>
       <link>http://jmaxu.github.io/post/blockchain-smartcontract-3/</link>
-      <pubDate>Fri, 29 Dec 2017 20:45:37 +0800</pubDate>
+      <pubDate>Sun, 29 Oct 2017 20:45:37 +0800</pubDate>
       
       <guid>http://jmaxu.github.io/post/blockchain-smartcontract-3/</guid>
       <description>智能合约是运行在区块链上的一段相关方约定好的代码, 可以理解为就是合同, 只不过是用代码写的, 可执行的. 区块链上的智能合约有以下优点: 智能. 不像</description>
@@ -41,7 +41,7 @@
     <item>
       <title>搭建一个私有网络的区块链</title>
       <link>http://jmaxu.github.io/post/blockchain-smartcontract-4/</link>
-      <pubDate>Fri, 29 Dec 2017 20:45:37 +0800</pubDate>
+      <pubDate>Sun, 29 Oct 2017 20:45:37 +0800</pubDate>
       
       <guid>http://jmaxu.github.io/post/blockchain-smartcontract-4/</guid>
       <description>在这篇文章中, 我们用以太坊搭建一个私有网络的属于自己的区块链, 编写一个数据认证的智能合约并部署到私有网络的区块链上. 私有网络的区块链与联盟链</description>
@@ -50,7 +50,7 @@
     <item>
       <title>比特币中的智能合约</title>
       <link>http://jmaxu.github.io/post/blockchain-smartcontract-1/</link>
-      <pubDate>Fri, 29 Dec 2017 20:45:37 +0800</pubDate>
+      <pubDate>Sun, 29 Oct 2017 20:45:37 +0800</pubDate>
       
       <guid>http://jmaxu.github.io/post/blockchain-smartcontract-1/</guid>
       <description>说起智能合约, 往往想到的不是比特币, 而是以太坊等其他区块链. 其实比特币也是有智能合约的, 之所以比特币被称为可编程货币, 就是因为比特币的智能合</description>
