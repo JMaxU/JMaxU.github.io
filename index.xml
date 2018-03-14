@@ -6,10 +6,19 @@
     <description>Recent content on JMaxU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 26 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://jmaxu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>如何你能回答出这些问题, 证明你很了解区块链技术</title>
+      <link>http://jmaxu.github.io/post/blockchain-question/</link>
+      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://jmaxu.github.io/post/blockchain-question/</guid>
+      <description>描述一下公私钥在比特币中的应用? 比特币SPV节点是指什么? 比特币SPV节点是如何验证交易的? 什么是双花问题? 请描述一下双花攻击的过程. 比特币</description>
+    </item>
     
     <item>
       <title>利用applescript复习evernote笔记</title>
