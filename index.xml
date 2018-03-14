@@ -6,10 +6,28 @@
     <description>Recent content on JMaxU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 07 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://jmaxu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>我也写一个区块链的科普</title>
+      <link>http://jmaxu.github.io/post/draft/blockchain-introduce/</link>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://jmaxu.github.io/post/draft/blockchain-introduce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>以太猫源码</title>
+      <link>http://jmaxu.github.io/post/%E4%BB%A5%E5%A4%AA%E7%8C%AB%E6%BA%90%E7%A0%81/</link>
+      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://jmaxu.github.io/post/%E4%BB%A5%E5%A4%AA%E7%8C%AB%E6%BA%90%E7%A0%81/</guid>
+      <description>以下是以太猫合约, 源码: // CryptoKitties Source code // Copied from: https://etherscan.io/address/0x06012c8cf97bead5deae237070f9587f8e7a266d#code pragma solidity ^0.4.11; /** * @title Ownable * @dev The Ownable contract has an owner address, and provides basic authorization control * functions, this simplifies the implementation of &amp;quot;user permissions&amp;quot;. */ contract Ownable { address public owner; /** * @dev The Ownable constructor sets the original `owner` of the contract</description>
+    </item>
     
     <item>
       <title>如何你能回答出这些问题, 证明你很了解区块链技术</title>
