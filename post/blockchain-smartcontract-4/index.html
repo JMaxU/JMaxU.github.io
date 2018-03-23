@@ -74,7 +74,7 @@
 
 <meta itemprop="datePublished" content="2017-10-29T20:45:37&#43;08:00" />
 <meta itemprop="dateModified" content="2017-10-29T20:45:37&#43;08:00" />
-<meta itemprop="wordCount" content="2552">
+<meta itemprop="wordCount" content="2647">
 
 
 
@@ -152,7 +152,7 @@
               <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             
           </div>
-        <span class="more-meta"> 约 2552 字 </span>
+        <span class="more-meta"> 约 2647 字 </span>
         <span class="more-meta"> 预计阅读 6 分钟 </span>
         
       </div>
@@ -283,6 +283,7 @@ geth --networkid 11988 --datadir ./node2/ --syncmode &quot;full&quot; --rpc --rp
 <li><code>networdid</code>也chainId相同.</li>
 <li><code>port</code>指定节点间互相通过的端口.</li>
 <li><code>rpcport</code>指定节点对外暴露的接口所用的端口.</li>
+<li><code>rpcaddr</code>指定监听的网关, 默认为&rdquo;localhost&rdquo;, 如果想让其他机器通过rpc访问可以设置为&rdquo;0.0.0.0&rdquo;</li>
 </ul>
 
 <h3 id="创建账户">创建账户</h3>
@@ -299,6 +300,11 @@ eth.getBalance(web3.eth.accounts[0])
 </code></pre>
 
 <p>这样就创建了一个账户, 刚创建的账户的余额为0.</p>
+
+<p>设置控矿所得到这个账号</p>
+
+<pre><code>web3.miner.setEtherbase(web3.eth.accounts[0]);
+</code></pre>
 
 <h3 id="挖点矿">挖点矿</h3>
 
